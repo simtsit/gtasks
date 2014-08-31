@@ -2,7 +2,11 @@
 
 class P404 extends CI_Controller {
 
-
+/** 
+*   This fucntion check if user is loged in.
+*  If not, it redirects user to login page.
+*
+*/
 	public function __construct ()
 	{
 		parent::__construct();
@@ -40,5 +44,5 @@ class P404 extends CI_Controller {
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file p404.php */
+/* Location: ./application/controllers/p404.php */

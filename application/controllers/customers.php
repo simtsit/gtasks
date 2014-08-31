@@ -2,6 +2,12 @@
 
 class Customers extends CI_Controller {
 
+
+/** 
+*   This fucntion check if user is loged in.
+*  If not, it redirects user to login page.
+*
+*/
 	public function __construct ()
 	{
 		session_start();
@@ -113,12 +119,7 @@ class Customers extends CI_Controller {
 			$projectids[]= $project['id'];
 		}
 
-		// foreach($data['projects'] as $project){
-			//$data['tasks'] = $this->task->get_tasks_by_project_id($project['id']);
-			$data['tasks'] = $this->task->get_tasks_by_project_ids($projectids);
-		// }
-
-
+		$data['tasks'] = $this->task->get_tasks_by_project_ids($projectids);
 		$data['users'] = $this->user->all_user_names();		
 		$data['task_types'] = $this->task_type->all_task_types();
 		$data['priorities'] = $this->priority->all_priorities();
@@ -138,5 +139,5 @@ class Customers extends CI_Controller {
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file customers.php */
+/* Location: ./application/controllers/customers.php */

@@ -14,17 +14,6 @@ class Login extends CI_Controller {
 	 *
 	 */
 	public function index(){
-		// $data['title'] = 'Gecko Tasks Login';
-		
-		// $this->load->library('form_validation');
-		// $this->form_validation->set_rules('username','Username','required');
-		// $this->form_validation->set_rules('password','Password','required');
-		
-		// if($this->form_validation->run() !== false) {
-		// 	//then vlidation passed. get from the db.
-		// 	$this->load->model('user');
-		// 	$this->user->verify_user('simos','haha');
-		// }
 
 		if (isset($_SESSION['username']) ) {
 			redirect('dashboard');
@@ -68,5 +57,5 @@ class Login extends CI_Controller {
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file login.php */
+/* Location: ./application/controllers/login.php */

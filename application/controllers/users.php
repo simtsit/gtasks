@@ -2,7 +2,11 @@
 
 class Users extends CI_Controller {
 
-
+/** 
+*   This fucntion check if user is loged in.
+*  If not, it redirects user to login page.
+*
+*/
 	public function __construct ()
 	{
 		session_start();
@@ -65,11 +69,6 @@ class Users extends CI_Controller {
 		$data['positions'] = $this->position->all_positions();
 		$data['users'] = $this->user->get_user($username);
 
-		//$data['user_id'] = $this->user->get_user_id($username);
-
-		// $user_ids = $this->user->get_user_id($username);
-		// $user_id=$user_ids->id;
-
 		$data['monthly_reviews'] = $this->monthly_review->user_monthly_reviews($data['users'][0]['id']);
 
 		$data['usernames'] = $this->user->all_users();
@@ -85,5 +84,5 @@ class Users extends CI_Controller {
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file users.php */
+/* Location: ./application/controllers/users.php */

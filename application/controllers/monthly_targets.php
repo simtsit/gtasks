@@ -2,7 +2,11 @@
 
 class Monthly_targets extends CI_Controller {
 
-
+/** 
+*   This fucntion check if user is loged in.
+*  If not, it redirects user to login page.
+*
+*/
 	public function __construct ()
 	{
 		session_start();
@@ -44,5 +48,5 @@ class Monthly_targets extends CI_Controller {
 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+/* End of file monthly_targets.php */
+/* Location: ./application/controllers/monthly_targets.php */

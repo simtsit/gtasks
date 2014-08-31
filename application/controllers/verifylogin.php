@@ -1,5 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+
+  /**
+   * This controller has only one purpose: Verify User email and password.
+   *
+   */
+
 class VerifyLogin extends CI_Controller {
 
  function __construct()
@@ -29,6 +35,9 @@ class VerifyLogin extends CI_Controller {
 
  }
 
+
+ 
+
  function check_database($password)
  {
    //Field validation succeeded.  Validate against database
@@ -57,4 +66,7 @@ class VerifyLogin extends CI_Controller {
    }
  }
 }
-?>
+
+
+/* End of file verifylogin.php */
+/* Location: ./application/controllers/verifylogin.php */

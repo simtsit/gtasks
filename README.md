@@ -63,7 +63,7 @@ Thanks.
 ### Special thanks to
  * onokumus (template)
  * highcharts.com (charts)
-
+ * authentication (https://www.youtube.com/watch?v=3FCMiYbF5DA)
 
 ### License
 Copyright (c) 2014 simtsit
