@@ -50,10 +50,6 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 
-//$db['default']['username'] = 'anglers2_taskman'; //edited by duke
-//$db['default']['password'] = 'geckotaskman1$';	 //edited by duke
-//$db['default']['database'] = 'anglers2_geckotasks';	 //edited by duke
-
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
 $db['default']['database'] = 'geckotasks';
