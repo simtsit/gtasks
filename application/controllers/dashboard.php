@@ -42,6 +42,7 @@ class Dashboard extends CI_Controller {
 
 		$data['title'] = 'Dashboard';
 		$data['active'] = 'Dashboard';		
+		$data['fa-icon'] = 'fa-dashboard';
 
 		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
 		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 

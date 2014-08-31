@@ -7,7 +7,7 @@ li.a {
 }
 
 header.navbar-header {
-	padding-right: 40px;
+	padding-right: 10px;
 }
 
 #content td a {
@@ -32,3 +32,43 @@ header.navbar-header {
 .user-media .media-body {
 	margin-left: 2px;
 }
+
+
+.page-title {
+	float:left;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.navbar-nav {
+	float: right;
+}
+
+/*.div-table{
+	display:table;         
+	width:auto;         
+	background-color:#eee;         
+	border:1px solid  #666666;         
+	border-spacing:5px;/*cellspacing:poor IE support for  this*/
+/*}
+.div-table-row{
+	display:table-row;
+	width:auto;
+	clear:both;
+}
+
+.div-table-header{
+	float:left;/*fix for  buggy browsers*/
+/*	display:table-column;         */
+/*	width:200px; */        
+	/*width: auto;
+	background-color:#ccc;  
+}
+
+.div-table-col{
+	float:left;/*fix for  buggy browsers*/
+/*	display:table-column;         
+	/*width:200px;*/         
+/*	width: auto;
+	background-color:#ccc;  
+}*/

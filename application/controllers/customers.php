@@ -133,8 +133,6 @@ class Customers extends CI_Controller {
 		}
 
 
-
-
 		$this->load->view('customer_profile', $data);
 	}
 

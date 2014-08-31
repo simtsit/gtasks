@@ -31,7 +31,7 @@
 
               <li class="<?php if($active == "Customers") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>customers">
-                  <i class="fa fa-table"></i>&nbsp; Customers
+                  <i class="fa fa-star"></i>&nbsp; Customers
                 </a> 
               </li>
 
@@ -48,29 +48,32 @@
 
               <li>
                 <a href="<?php echo base_url(); ?>users">
-                  <i class="fa fa-font"></i>&nbsp; Users</a> 
+                  <i class="fa fa-user"></i>&nbsp; Users</a> 
               </li>
 
-
               <li>
-                <a href="<?php echo base_url(); ?>monthly_reviews">
-                  <i class="fa fa-table"></i>&nbsp; Monthly Reviews</a> 
+                <a href="<?php echo base_url(); ?>daily_target">
+                  <i class="fa fa-font"></i>&nbsp; Don't click this!</a> 
               </li>
 
               <li>
                 <a href="<?php echo base_url(); ?>daily_targets">
-                  <i class="fa fa-file"></i>&nbsp; Daily Targets</a> 
+                  <i class="fa fa-check-circle-o"></i>&nbsp; Daily Targets</a> 
               </li>
 
-
               <li>
-                <a href="<?php echo base_url(); ?>daily_target">
-                  <i class="fa fa-font"></i>&nbsp; Daily Target</a> 
+                <a href="<?php echo base_url(); ?>monthly_reviews">
+                  <i class="fa fa-bar-chart-o"></i>&nbsp; Monthly Reviews</a> 
               </li>
 
               <li>
                 <a href="<?php echo base_url(); ?>monthly_targets">
-                  <i class="fa fa-tasks"></i>&nbsp; Monthly Targets</a> 
+                  <i class="fa fa-table"></i>&nbsp; Monthly Targets</a> 
+              </li>
+
+              <li>
+                <a href="<?php echo base_url(); ?>monthly_targets">
+                  <i class="fa fa-warning"></i>&nbsp; Log</a> 
               </li>
 
         </ul><!-- /#menu -->

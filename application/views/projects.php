@@ -13,7 +13,6 @@
             <table class="table table-condensed table-hovered sortableTable">
               <tr>
                 <th>#</th>
-                <th>Project ID</th>
                 <th>Custmer</th>
                 <th>Project Name</th>
                 <th>Project URL</th>
@@ -25,7 +24,6 @@
                     $count++;
                     echo "<tr>";
                     echo "<td>" . $count . "</td>";
-                    echo "<td>" . $project['id'] . "</td>";
                     echo "<td>";
                     foreach($customers as $customer){
                       if ($project['customer']==$customer['id']) echo $customer['fullname'];

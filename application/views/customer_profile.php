@@ -19,14 +19,6 @@
                     <form class="form-horizontal" id="popup-validation" action="add" method="post">
 
                       <div class="form-group">
-                        <label class="control-label col-lg-4">Username:</label>
-                        <!-- <div class="col-lg-4"> -->
-                           <label class="control-label"><?php echo $customer['username']; ?></label> 
-                          <!-- <input type="text" name="username" id="priority" class="validate[required] form-control" value="<?php echo $customer['username']; ?>"> -->
-                        <!-- </div> -->
-                      </div>
-
-                      <div class="form-group">
                         <label class="control-label col-lg-4">First Name:</label>
                         <!-- <div class="col-lg-4"> -->
                         <label class="control-label"><?php echo $customer['first_name']; ?></label>
@@ -59,7 +51,7 @@
 
 
 
-<div class="row">
+            <div class="row">
 
                 <div class="task-list col-md-6">
 

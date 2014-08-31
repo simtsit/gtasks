@@ -19,9 +19,9 @@
 
             <div class="collapse navbar-collapse navbar-ex1-collapse">
 
+              <p class="page-title">GeckoTasks | GeckoWebWorks.com</p>
               <!-- .nav -->
               <ul class="nav navbar-nav">
-                <li style=" padding-top:14px;">GeckoTasks | GeckoWebWorks.com</li>
                 <li><a href="table.html">My Profile</a></li>
                 <li><a href="table.html">My Tasks</a></li>
                 <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
@@ -32,7 +32,19 @@
         <header class="head">
           <div class="main-bar">
             <h3>
-              <i class="fa fa-dashboard"></i>&nbsp; Dashboard</h3>
+              <i class="fa
+              <?php
+              if($active=="Dashboard") echo " fa-dashboard";
+              if($active=="Customers") echo " fa-star";
+              if($active=="Projects") echo " fa-pencil";
+              if($active=="Tasks") echo " fa-tasks";
+              if($active=="Users") echo " fa-users";
+              if($active=="Monthly Reviews") echo " fa-bar-chart-o";
+              if($active=="Monthly Targets") echo " fa-table";
+              if($active=="Logs") echo " fa-warning";
+              ?>
+              ">
+              </i>&nbsp; <?php echo $title; ?></h3>
           </div><!-- /.main-bar -->
         </header><!-- /.head -->
       </div><!-- /#top -->

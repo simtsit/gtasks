@@ -24,7 +24,7 @@ class Projects extends CI_Controller {
 	 *
 	 */
 	public function index(){
-		$data['title'] = 'Projects list';
+		$data['title'] = 'Projects';
 		$data['active'] = 'Projects';
 
 		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
