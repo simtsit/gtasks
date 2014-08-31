@@ -25,7 +25,7 @@ class Customers extends CI_Controller {
 	 *
 	 */
 	public function index(){
-		$data['title'] = 'Customers list';
+		$data['title'] = 'Customers';
 		$data['active'] = 'Customers';
 
 

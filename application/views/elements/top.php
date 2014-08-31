@@ -21,7 +21,7 @@
 
               <!-- .nav -->
               <ul class="nav navbar-nav">
-                <li style=" padding-top:14px;">Gecko Tasks | GeckoWebWorks.com</li>
+                <li style=" padding-top:14px;">GeckoTasks | GeckoWebWorks.com</li>
                 <li><a href="table.html">My Profile</a></li>
                 <li><a href="table.html">My Tasks</a></li>
                 <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>

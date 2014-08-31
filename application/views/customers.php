@@ -17,10 +17,8 @@
               <tr>
                 <th>#</th>
                 <th>Full Name</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Projects</th>
-                <th>Tasks</th>
+                <th>Related Projects</th>
+                <th>Related Tasks</th>
               </tr>
 
                 <?php
@@ -34,9 +32,6 @@
                     echo "<td><a href='" . base_url() . "customers/profile/" . $customer['username'] . "'>";
                     echo $customer['fullname'];
                     echo "</a></td>";
-
-                    echo "<td>" . $customer['first_name'] . "</td>";
-                    echo "<td>" . $customer['last_name'] . "</td>";
 
                     echo "<td>";
                     echo $projectcount[$customer['id']];

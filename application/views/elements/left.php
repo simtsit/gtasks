@@ -23,54 +23,54 @@
           <li class="nav-divider"></li>
 
       
-              <li>
+              <li class="<?php if($active == "Dashboard") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>dashboard">
-                  <i class="fa fa-dashboard <?php if ($active == "Dashboard") echo 'active'; ?>"></i>&nbsp; Dashboard
+                  <i class="fa fa-dashboard"></i>&nbsp; Dashboard
                 </a> 
               </li>
 
-              <li>
+              <li class="<?php if($active == "Customers") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>customers">
-                  <i class="fa fa-table <?php if ($active == "Customers") echo 'active'; ?>"></i>&nbsp; Customers
+                  <i class="fa fa-table"></i>&nbsp; Customers
                 </a> 
               </li>
 
 
               <li>
                 <a href="<?php echo base_url(); ?>projects">
-                  <i class="fa fa-pencil <?php if ($active == "Projects") echo 'active'; ?>"></i>&nbsp; Projects</a> 
+                  <i class="fa fa-pencil"></i>&nbsp; Projects</a> 
               </li>
 
               <li>
                 <a href="<?php echo base_url(); ?>tasks">
-                  <i class="fa fa-tasks <?php if ($active == "Tasks") echo 'active'; ?>"></i>&nbsp; Tasks</a> 
+                  <i class="fa fa-tasks"></i>&nbsp; Tasks</a> 
               </li>
 
               <li>
                 <a href="<?php echo base_url(); ?>users">
-                  <i class="fa fa-font <?php if ($active == "Users") echo 'active'; ?>"></i>&nbsp; Users</a> 
+                  <i class="fa fa-font"></i>&nbsp; Users</a> 
               </li>
 
 
               <li>
                 <a href="<?php echo base_url(); ?>monthly_reviews">
-                  <i class="fa fa-table <?php if ($active == "Users") echo 'active'; ?>"></i>&nbsp; Monthly Reviews</a> 
+                  <i class="fa fa-table"></i>&nbsp; Monthly Reviews</a> 
               </li>
 
               <li>
                 <a href="<?php echo base_url(); ?>daily_targets">
-                  <i class="fa fa-file <?php if ($active == "Users") echo 'active'; ?>"></i>&nbsp; Daily Targets</a> 
+                  <i class="fa fa-file"></i>&nbsp; Daily Targets</a> 
               </li>
 
 
               <li>
                 <a href="<?php echo base_url(); ?>daily_target">
-                  <i class="fa fa-font <?php if ($active == "Users") echo 'active'; ?>"></i>&nbsp; Daily Target</a> 
+                  <i class="fa fa-font"></i>&nbsp; Daily Target</a> 
               </li>
 
               <li>
                 <a href="<?php echo base_url(); ?>monthly_targets">
-                  <i class="fa fa-tasks <?php if ($active == "Tasks") echo 'active'; ?>"></i>&nbsp; Monthly Targets</a> 
+                  <i class="fa fa-tasks"></i>&nbsp; Monthly Targets</a> 
               </li>
 
         </ul><!-- /#menu -->

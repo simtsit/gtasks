@@ -10,40 +10,16 @@
       <div id="content">
         <div class="outer">
           <div class="inner bg-light lter">
-            <div class="text-center">
-             <!--  <ul class="stats_box">
-                <li>
-                  <div class="sparkline bar_week"></div>
-                  <div class="stat_text">
-                    <strong>2.345</strong> Weekly Visit
-                    <span class="percent down"> <i class="fa fa-caret-down"></i> -16%</span> 
-                  </div>
-                </li>
-                <li>
-                  <div class="sparkline line_day"></div>
-                  <div class="stat_text">
-                    <strong>165</strong> Daily Visit
-                    <span class="percent up"> <i class="fa fa-caret-up"></i> +23%</span> 
-                  </div>
-                </li>
-                <li>
-                  <div class="sparkline pie_week"></div>
-                  <div class="stat_text">
-                    <strong>$2 345.00</strong> Weekly Sale
-                    <span class="percent"> 0%</span> 
-                  </div>
-                </li>
-                <li>
-                  <div class="sparkline stacked_month"></div>
-                  <div class="stat_text">
-                    <strong>$678.00</strong> Monthly Sale
-                    <span class="percent down"> <i class="fa fa-caret-down"></i> -10%</span> 
-                  </div>
-                </li>
-              </ul> -->
-            </div>
-            <!-- <hr> -->
-            <div class="text-center">
+            <div class="row"> <!-- first row start -->
+
+              <div class="col-md-7">
+                <br>
+                <p><strong>Welcome to GeckoTasks!</strong> This is a simple task manager with an even more simple perpose: to simulate a modern working enviroment.</p>
+                <p>There is already some basic functionality enabled. Yet, many features are about to come.</p>
+                <p>Feel free to navigate around and don't afraid to play. And please don't forget to give me some nice feedback with issues or ideas of improvement! ;)</p>
+              </div>
+
+            <div class="text-center col-md-5">
               <a class="quick-btn" href="<?php echo base_url().'users'; ?>">
                 <i class="fa fa-user fa-2x"></i>
                 <span>Users</span> 
@@ -69,27 +45,12 @@
                 <span>Reviews</span> 
                 <span class="label label-warning"><?php echo count($monthly_reviews); ?></span> 
               </a> 
-              <a class="quick-btn" href="<?php echo base_url().'daily_targets'; ?>">
-                <i class="fa fa-building-o fa-2x"></i>
-                <span>Daily Targets</span> 
-              </a> 
-              <a class="quick-btn" href="<?php echo base_url().'daily_target'; ?>">
-                <i class="fa fa-external-link fa-2x"></i>
-                <span>Daily Target</span> 
-                <span class="label btn-metis-2">3.14159265</span> 
-              </a> 
-              <a class="quick-btn" href="<?php echo base_url().'monthly_target'; ?>">
-                <i class="fa fa-envelope fa-2x"></i>
-                <span>Mon. Target</span> 
-                <span class="label label-success">-456</span> 
-              </a> 
-<!--               <a class="quick-btn" href="#">
-                <i class="fa fa-lemon-o fa-2x"></i>
-                <span>é</span> 
-                <span class="label btn-metis-4">2.71828</span> 
-              </a>  -->
             </div>
-            <hr>
+
+
+          </div><!-- end of first row -->
+
+
             <div class="row">
               <div class="col-lg-8">
                 <div class="box">
