@@ -29,7 +29,6 @@ class Customers extends CI_Controller {
 		$data['active'] = 'Customers';
 
 
-		
 		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
 		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
 		
@@ -77,7 +76,10 @@ class Customers extends CI_Controller {
 			$data['customer_tasks'][$customer['id']] = $task_summary;
 			$task_summary = 0;
 		}
-
+		
+		$data['tasks'] = $this->task->all_tasks();
+		$data['task_types'] = $this->task_type->all_task_types();
+		$data['priorities'] = $this->priority->all_priorities();
 
 
 	$this->load->view('customers', $data);

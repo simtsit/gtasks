@@ -60,7 +60,6 @@ class Dashboard extends CI_Controller {
 		$data['projects'] = $this->project->all_projects();
 		$data['tasks'] = $this->task->all_tasks();
 		$data['task_types'] = $this->task_type->all_task_types();
-		// $data['gtasks'] = $this->task->all_g_tasks();
 		$data['priorities'] = $this->priority->all_priorities();
 		$data['monthly_reviews'] = $this->monthly_review->all_monthly_reviews();
 

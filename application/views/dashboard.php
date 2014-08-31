@@ -160,7 +160,6 @@ $(function () {
             data: [
             
           <?php
-            $low_count = 1;
             foreach($task_types as $task_type){
 
               $totalcount=0;
@@ -180,7 +179,6 @@ $(function () {
             } /* end of foreach */
 
               echo $totalcount . ",";
-              $low_count++;
 
             } /* end of foreach */
  
@@ -192,7 +190,6 @@ $(function () {
             data: [
 
           <?php
-            $medium_count = 1;
             foreach($task_types as $task_type){
 
               $totalcount=0;
@@ -212,7 +209,6 @@ $(function () {
             } /* end of foreach */
 
               echo $totalcount . ",";
-              $medium_count++;
 
             } /* end of foreach */
  
@@ -226,7 +222,6 @@ $(function () {
             data: [
 
           <?php
-            $urgent_count = 1;
             foreach($task_types as $task_type){
 
               $totalcount=0;
@@ -246,7 +241,6 @@ $(function () {
             } /* end of foreach */
 
               echo $totalcount . ",";
-              $urgent_count++;
 
             } /* end of foreach */
  
@@ -259,7 +253,6 @@ $(function () {
             data: [
           
           <?php
-            $critical_count = 1;
             foreach($task_types as $task_type){
 
               $totalcount=0;
@@ -279,7 +272,6 @@ $(function () {
             } /* end of foreach */
 
               echo $totalcount . ",";
-              $critical_count++;
 
             } /* end of foreach */
  
