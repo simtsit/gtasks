@@ -40,11 +40,6 @@
                 <span>Tasks</span> 
                 <span class="label label-danger"><?php echo count($tasks); ?></span> 
               </a> 
-              <a class="quick-btn" href="<?php echo base_url().'monthly_reviews'; ?>">
-                <i class="fa fa-signal fa-2x"></i>
-                <span>Reviews</span> 
-                <span class="label label-warning"><?php echo count($monthly_reviews); ?></span> 
-              </a> 
             </div>
 
 
@@ -60,6 +55,7 @@
 
 <script>
 $(function () {
+  Highcharts.setOptions({colors: ['#7CB5EC', '#90ED7D','#F7A35C','#ff0000', '#8085E9']});
     $('.task-chart').highcharts({
         title: {
             text: 'Monthly Average Tasks',
@@ -124,6 +120,7 @@ $(function () {
                     </header>
                   <script>
                   $(function () {
+    Highcharts.setOptions({colors: ['#90ED7D', '#7CB5EC', '#F7A35C','#FF0000']});
     $('.task-type-chart').highcharts({
         chart: {
             type: 'bar'
@@ -287,71 +284,12 @@ $(function () {
 <div class="task-type-chart" style="min-width: 310px; max-width: 800px; height: 500px; margin: 0 auto"></div>
 
 
-
-
                 </div>
               </div>
             </div>
           </div><!-- /.inner -->
         </div><!-- /.outer -->
       </div><!-- /#content -->
-      <div id="right" class="bg-light lter">
-        <div class="alert alert-danger">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Warning!</strong>  Best check yo self, you're not looking too good.
-        </div>
-
-        <!-- .well well-small -->
-        <div class="well well-small dark">
-          <ul class="list-unstyled">
-            <li>Visitor <span class="inlinesparkline pull-right">1,4,4,7,5,9,10</span> 
-            </li>
-            <li>Online Visitor <span class="dynamicsparkline pull-right">Loading..</span> 
-            </li>
-            <li>Popularity <span class="dynamicbar pull-right">Loading..</span> 
-            </li>
-            <li>New Users <span class="inlinebar pull-right">1,3,4,5,3,5</span> 
-            </li>
-          </ul>
-        </div><!-- /.well well-small -->
-
-        <!-- .well well-small -->
-        <div class="well well-small dark">
-          <button class="btn btn-block">Default</button>
-          <button class="btn btn-primary btn-block">Primary</button>
-          <button class="btn btn-info btn-block">Info</button>
-          <button class="btn btn-success btn-block">Success</button>
-          <button class="btn btn-danger btn-block">Danger</button>
-          <button class="btn btn-warning btn-block">Warning</button>
-          <button class="btn btn-inverse btn-block">Inverse</button>
-          <button class="btn btn-metis-1 btn-block">btn-metis-1</button>
-          <button class="btn btn-metis-2 btn-block">btn-metis-2</button>
-          <button class="btn btn-metis-3 btn-block">btn-metis-3</button>
-          <button class="btn btn-metis-4 btn-block">btn-metis-4</button>
-          <button class="btn btn-metis-5 btn-block">btn-metis-5</button>
-          <button class="btn btn-metis-6 btn-block">btn-metis-6</button>
-        </div><!-- /.well well-small -->
-
-        <!-- .well well-small -->
-        <div class="well well-small dark">
-          <span>Default</span> <span class="pull-right"><small>20%</small> </span> 
-          <div class="progress xs">
-            <div class="progress-bar progress-bar-info" style="width: 20%"></div>
-          </div>
-          <span>Success</span> <span class="pull-right"><small>40%</small> </span> 
-          <div class="progress xs">
-            <div class="progress-bar progress-bar-success" style="width: 40%"></div>
-          </div>
-          <span>warning</span> <span class="pull-right"><small>60%</small> </span> 
-          <div class="progress xs">
-            <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
-          </div>
-          <span>Danger</span> <span class="pull-right"><small>80%</small> </span> 
-          <div class="progress xs">
-            <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
-          </div>
-        </div>
-      </div><!-- /#right -->
     </div><!-- /#wrap -->
     
     <?php include ('elements/footer.php'); ?>

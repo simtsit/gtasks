@@ -62,7 +62,6 @@
                     ?>
                     <table class="table table-condensed table-hovered sortableTable">
                       <tr>
-                        <th>Task ID</th>
                         <th>Priority</th>
                         <th>Type</th>
                         <th>Project</th>
@@ -72,13 +71,15 @@
                       </tr>
                       
                       <?php
+                      $count=1;
                       foreach($tasks as $task){
                         echo "<tr>";
-                        echo "<td>";
-                        echo $task['id'];
-                        echo "</td>";
 
-                        echo "<td>";
+                        echo "<td class=";
+                        foreach ($priorities as $priority)
+                          if ($task['priority']==$priority['id'])
+                            echo $priority['name'];
+                        echo ">";
                         foreach ($priorities as $priority)
                           if ($task['priority']==$priority['id'])
                             echo $priority['name'];
@@ -111,6 +112,13 @@
                         echo "</tr>";
                       }
                     ?>
+                    <tr class="bold">
+                      <td></td>
+                      <td>Total Tasks:</td>
+                      <td><?php echo count($tasks); ?></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
                   </table>
 
                   <?php
@@ -130,9 +138,10 @@
                     ?>
                     <table class="table table-condensed table-hovered sortableTable">
                       <tr>
+                        <th>#</th>
                         <th>Project Name</th>
                         <th>Project URL</th>
-                        <th>Related Tasks</th>
+                        <th class="center">Related Tasks</th>
                       </tr>
                       
                       <?php
@@ -140,6 +149,8 @@
                       foreach($projects as $project){
                         
                         echo "<tr>";
+                        echo "<td>" . $count . "</td>";
+
                         echo "<td>";
                         echo $project['name'];
                         echo "</td>";
@@ -148,7 +159,7 @@
                         echo $project['URL'];
                         echo "</td>";
 
-                        echo "<td>";
+                        echo "<td class=center>";
                         echo $taskcount[$count];
                         echo "</td>";
 
@@ -156,6 +167,13 @@
                         $count++;
                       }
                     ?>
+
+                    <tr class="bold">
+                        <td></td>
+                        <td>Total:</td>
+                        <td class="center"><?php echo count($projects); ?></td>
+                        <td class="center"><?php echo count($tasks); ?></td>
+                    </tr>
                   </table>
 
                   <?php
@@ -170,16 +188,24 @@
 
        <script>
 $(function () {
+ Highcharts.setOptions({colors: ['#90ED7D', '#7CB5EC', '#F7A35C','#FF0000']});  
     $('.task-priority-chart').highcharts({
         title: {
             text: 'Combination chart'
         },
         xAxis: {
-            categories: ['project1', 'project2', 'Project3', 'project4', 'project5']
+            categories: [
+            <?php 
+              foreach($projects as $project){
+                echo "'" . $project['name'] . "',";
+              }
+              ?>
+            ]
+            
         },
         labels: {
             items: [{
-                html: 'Total fruit consumption',
+                html: 'Total Tasks',
                 style: {
                     left: '50px',
                     top: '18px',
@@ -190,19 +216,143 @@ $(function () {
         series: [{
             type: 'column',
             name: 'low',
-            data: [3, 2, 1, 3, 4]
+            data: [
+            <?php
+            foreach($projects as $project){
+
+                $totalcount=0;        
+                foreach($tasks as $task){
+
+
+                    // foreach($tasks as $task){
+
+
+                        if(($project['customer']==$customer['id']) && ($task['project']==$project['id'])){
+
+                                if($task['priority']==1){
+
+                                    $totalcount++;
+
+                                } /* end of if */
+
+                            }/* end of if */
+
+
+                    // }  end of customer foreach 
+
+                } /* end of project foreach  */
+
+                echo $totalcount . ", ";
+
+            } /* end of task foreach */
+
+          ?>
+          ]
         }, {
             type: 'column',
             name: 'medium',
-            data: [2, 3, 5, 7, 6]
+            data: [
+            <?php
+            foreach($projects as $project){
+
+                $totalcount=0;        
+                foreach($tasks as $task){
+
+
+                    // foreach($tasks as $task){
+
+
+                        if(($project['customer']==$customer['id']) && ($task['project']==$project['id'])){
+
+                                if($task['priority']==2){
+
+                                    $totalcount++;
+
+                                } /* end of if */
+
+                            }/* end of if */
+
+
+                    // }  end of customer foreach 
+
+                } /* end of project foreach  */
+
+                echo $totalcount . ", ";
+
+            } /* end of task foreach */
+
+          ?>
+          ]
         }, {
             type: 'column',
             name: 'urgent',
-            data: [4, 3, 3, 9, 2]
+            data: [
+            <?php
+            foreach($projects as $project){
+
+                $totalcount=0;        
+                foreach($tasks as $task){
+
+
+                    // foreach($tasks as $task){
+
+
+                        if(($project['customer']==$customer['id']) && ($task['project']==$project['id'])){
+
+                                if($task['priority']==3){
+
+                                    $totalcount++;
+
+                                } /* end of if */
+
+                            }/* end of if */
+
+
+                    // }  end of customer foreach 
+
+                } /* end of project foreach  */
+
+                echo $totalcount . ", ";
+
+            } /* end of task foreach */
+
+          ?>
+          ]
         }, {
             type: 'column',
             name: 'critical',
-            data: [2, 3, 5, 7, 6]
+            data: [
+            <?php
+            foreach($projects as $project){
+
+                $totalcount=0;        
+                foreach($tasks as $task){
+
+
+                    // foreach($tasks as $task){
+
+
+                        if(($project['customer']==$customer['id']) && ($task['project']==$project['id'])){
+
+                                if($task['priority']==4){
+
+                                    $totalcount++;
+
+                                } /* end of if */
+
+                            }/* end of if */
+
+
+                    // }  end of customer foreach 
+
+                } /* end of project foreach  */
+
+                echo $totalcount . ", ";
+
+            } /* end of task foreach */
+
+          ?>
+          ]        
         }, {
 
             type: 'pie',
@@ -242,20 +392,28 @@ $(function () {
 
 <script>
 $(function () {
+   Highcharts.setOptions({colors: ['#90ED7D', '#7CB5EC', '#F7A35C','#FF0000']});  
     $('.task-type-chart').highcharts({
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Stacked bar chart'
+            text: ''
         },
         xAxis: {
-            categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+            categories: [
+            
+            <?php
+              foreach($task_types as $task_type) {
+                echo "'" . $task_type['name'] . "',";
+              }
+              ?>
+                ]
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Total fruit consumption'
+                text: ''
             }
         },
         legend: {
@@ -267,19 +425,134 @@ $(function () {
             }
         },
         series: [{
-            name: 'John',
-            data: [5, 3, 4, 7, 2]
+            name: 'Low',
+            data: [
+            
+          <?php
+            foreach($task_types as $task_type){
+
+              $totalcount=0;
+
+              foreach($tasks as $task){
+            
+                if($task['type'] == $task_type['id']){
+                 
+                  if($task['priority']==1){
+                     //$totalcount = $totalcount + count($task['type']);
+                     $totalcount++;
+                  } /* end of if */
+
+                } /* end of if */
+
+
+            } /* end of foreach */
+
+              echo $totalcount . ",";
+
+            } /* end of foreach */
+ 
+          ?>
+          ]
+
         }, {
-            name: 'Jane',
-            data: [2, 2, 3, 2, 1]
+            name: 'Medium',
+            data: [
+
+          <?php
+            foreach($task_types as $task_type){
+
+              $totalcount=0;
+
+              foreach($tasks as $task){
+            
+                if($task['type'] == $task_type['id']){
+                 
+                  if($task['priority']==2){
+                     //$totalcount = $totalcount + count($task['type']);
+                     $totalcount++;
+                  } /* end of if */
+
+                } /* end of if */
+
+
+            } /* end of foreach */
+
+              echo $totalcount . ",";
+
+            } /* end of foreach */
+ 
+          ?>
+          ]
+
+
+
+        }, {          
+            name: 'Urgent',
+            data: [
+
+          <?php
+            foreach($task_types as $task_type){
+
+              $totalcount=0;
+
+              foreach($tasks as $task){
+            
+                if($task['type'] == $task_type['id']){
+                 
+                  if($task['priority']==3){
+                     //$totalcount = $totalcount + count($task['type']);
+                     $totalcount++;
+                  } /* end of if */
+
+                } /* end of if */
+
+
+            } /* end of foreach */
+
+              echo $totalcount . ",";
+
+            } /* end of foreach */
+ 
+          ?>
+          ]
+
+
         }, {
-            name: 'Joe',
-            data: [3, 4, 4, 2, 5]
+            name: 'Critical',
+            data: [
+          
+          <?php
+            foreach($task_types as $task_type){
+
+              $totalcount=0;
+
+              foreach($tasks as $task){
+            
+                if($task['type'] == $task_type['id']){
+                 
+                  if($task['priority']==4){
+                    //$totalcount = $totalcount + count($task['type']);
+                     $totalcount++;
+                  } /* end of if */
+
+                } /* end of if */
+
+
+            } /* end of foreach */
+
+              echo $totalcount . ",";
+
+            } /* end of foreach */
+ 
+          ?>
+          ]
+
+
+
         }]
     });
 });
-
-</script>
+                  </script>
           
   <div class="task-type-chart col-md-6" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 

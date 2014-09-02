@@ -72,3 +72,28 @@ header.navbar-header {
 /*	width: auto;
 	background-color:#ccc;  
 }*/
+
+.bold {
+	font-weight: bold;
+}
+
+.center {
+	text-align: center;
+}
+
+
+.Low {
+	color: #90ED7D;
+}
+
+.Medium {
+	color: #7CB5EC;
+}
+	
+.Urgent {
+	color: #F7A35C;
+}
+
+.Critical {
+	color: #FF0000;
+}

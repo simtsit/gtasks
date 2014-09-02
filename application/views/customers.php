@@ -34,21 +34,28 @@
                         echo $customer['fullname'];
                         echo "</a></td>";
 
-                        echo "<td>";
+                        echo "<td class=center>";
                         echo $projectcount[$customer['id']];
                         echo "</td>";                    
                         
-                        echo "<td>";
+                        echo "<td class=center>";
                         echo $customer_tasks[$customer['id']];
                         echo "</td>";
                         $count++;
                       }
                     ?>
+                    <tr class="bold">
+                        <td></td>
+                        <td>Total:</td>
+                        <td class="center"><?php echo count($projects); ?></td>
+                        <td class="center"><?php echo count($tasks); ?></td>
+                    </tr>
                 </table>
             </div> <!-- end of customer list -->
 
            <script>
               $(function () {
+     Highcharts.setOptions({colors: ['#993d00','#cc5200','#ff6600','#ff8533','#ffa366','#ffc299']});                
         $('.project-chart').highcharts({
             chart: {
                 plotBackgroundColor: null,
@@ -97,6 +104,7 @@
 
            <script>
 $(function () {
+    Highcharts.setOptions({colors: ['#90ED7D', '#7CB5EC', '#F7A35C','#FF0000']});
     $('.task-chart').highcharts({
         chart: {
             type: 'bar'

@@ -41,6 +41,21 @@ class Projects extends CI_Controller {
 		
 		$data['customers'] = $this->customer->all_customers();
 		$data['projects'] = $this->project->all_projects();
+
+		$count=0;
+		foreach ($data['customers'] as $customer){
+			$projectcount=0;
+			foreach($data['projects'] as $project){
+				
+				if ($project['customer']==$customer['id']){
+                    $projectcount++;
+                }
+                $count++;
+			}
+
+			$data['projectcount'][$customer['id']] = $projectcount;
+		}
+
 		
 		$this->load->view('projects', $data);
 
