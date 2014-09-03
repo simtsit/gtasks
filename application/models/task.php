@@ -20,6 +20,19 @@ class Task extends CI_Model
   }
 
 
+  public function get_tasks_set_for($userid){
+   $this->db->where(array('active'=>1));
+   $this->db->where('setfor',$setfor);
+   return $this->db->get('tasks')->result_array();
+  }
+
+ public function get_tasks_set_from($userid){
+  $this->db->where(array('active'=>1));
+  $this->db->where('setfrom',$setfrom);
+  return $this->db->get('tasks')->result_array();
+ }
+
+
   // public function all_g_tasks() {
   //   $this->db->select('type, priority');
   //   $this->db->where(array('active'=>1));
@@ -28,16 +41,10 @@ class Task extends CI_Model
 
 
 
-
-
   // public function get_tasks_by_customer_id($customerid){
   //   $this->db->where('customer',$customerid);
   //   return $this->db->get('tasks')->result_array(); 
   // }
-
-
-
-
 
 
 public function insert_task($taskinfo) {
