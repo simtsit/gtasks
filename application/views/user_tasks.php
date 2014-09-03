@@ -11,6 +11,7 @@
         <div class="outer">
           <div class="inner bg-light lter">
             <div class="col-md-6"> <!-- Task For List starts -->
+              <h3 align=center>Tasks set for <?php echo $_SESSION['user'];?></h3>
               <table class="table table-condensed table-hovered sortableTable">
                 <tr>
                   <th>Priority</th>
@@ -53,7 +54,7 @@
                       }
                       echo '">';
                       foreach($users as $user){
-                        if($user['id']==$task['setfrom'])
+                        if($user['id']==$task['setfor'])
                           echo $user['username'];
                       }
                       echo '</a></td>';
@@ -99,6 +100,7 @@
               </div><!-- End of Task For list -->
 
             <div class="col-md-6"> <!-- Task From List starts -->
+              <h3 align=center>Tasks set from <?php echo $_SESSION['user'];?></h3>
               <table class="table table-condensed table-hovered sortableTable">
                 <tr>
                   <th>Priority</th>

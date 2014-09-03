@@ -22,8 +22,8 @@
               <p class="page-title">GeckoTasks | GeckoWebWorks.com</p>
               <!-- .nav -->
               <ul class="nav navbar-nav">
-                <li><a href="table.html">My Profile</a></li>
-                <li><a href="table.html">My Tasks</a></li>
+                <li><a href="users/profile/<?php echo $_SESSION['user'] ?>">My Profile</a></li>
+                <li><a href="tasks/mytasks/<?php echo $_SESSION['user']; ?>">My Tasks</a></li>
                 <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
               </ul><!-- /.nav -->
             </div>
@@ -44,7 +44,7 @@
               if($active=="Logs") echo " fa-warning";
               ?>
               ">
-              </i>&nbsp; <?php echo $title; ?></h3>
+              </i>&nbsp; <?php echo $title; ?></i>
           </div><!-- /.main-bar -->
         </header><!-- /.head -->
       </div><!-- /#top -->

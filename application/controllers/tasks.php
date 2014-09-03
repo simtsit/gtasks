@@ -53,15 +53,29 @@ class Tasks extends CI_Controller {
 
 	public function mytasks($username=''){
 		
+		$data['title'] = $username . "'s Tasks";
+		$data['active']='Tasks';
+
 		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
 		
-		$data['title'] = $info['active_user'] . "'s Tasks";
-		$data['active']='Tasks';
+		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+
+		$info['positions']=$this->position->all_positions();
+
+		foreach($info['positions'] as $position){
+			if ($info['active_user'][0]['position'] == $position['id'])
+				$data['position'] = $position['name']; 
+		}
+
+		$info['target_user'] = $this->user->get_user_details($username);
 		
-		$data['tasks_for'] = $this->task->get_tasks_set_for($info['active_user']['id']);
-		$data['tasks_from'] = $this->task->get_tasks_set_for($info['active_user']['id']);
+		$data['tasks_for'] = $this->task->get_tasks_set_for($info['target_user'][0]['id']);
+		$data['tasks_from'] = $this->task->get_tasks_set_from($info['target_user'][0]['id']);
 		
-		$data['projects'] = $this->task->all_projects();
+		$data['priorities'] = $this->priority->all_priorities();
+
+		$data['projects'] = $this->project->all_projects();
 		$data['users'] = $this->user->all_user_names();
 		$data['task_types'] = $this->task_type->all_task_types();
 		$data['task_statuses'] = $this->task_statuses->all_task_statuses();
