@@ -33,15 +33,6 @@
                         </div>
                       </div>
 
-
-                      <div class="form-group">
-                        <label class="control-label col-lg-4">User ID</label>
-                        <div class="col-lg-4">
-                          <input type="text" name="user_id" id="priority" class="validate[required] form-control" value="<?php echo $user['id']; ?>">
-                        </div>
-                      </div>
-
-
                       <div class="form-group">
                         <label class="control-label col-lg-4">First Name</label>
                         <div class="col-lg-4">
@@ -137,100 +128,6 @@ $(function () {
 
 <div id="chart_container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
-  <div style="width: 600px; padding-bottom: 40px; margin: 0 auto;">
-    <h2>Monthly Reviews for <?php echo $user['first_name'] . ' ' , $user['last_name']; ?></h2>
-
-    <?php 
-
-    if (!empty($monthly_reviews)) { 
-     echo '<table class="table table-condensed table-hovered sortableTable">';
-     echo '<tr>';
-     echo '<th>Month</th>';
-     echo '<th>Made by</th>';
-     echo '<th>Quantity</th>';
-     echo '<th>Quality</th>';
-     echo '<th>Contribution</th>';
-     echo '<th>Learning</th>';
-     echo '<th>Cooperative</th>';
-     echo '</tr> ';
-                            
-              foreach ($monthly_reviews as $monthly_review) {
-            
-                echo "<tr>";
-                echo "<td>" . $monthly_review['period'] . "</td>";
-            
-            
-                echo '<td><a href="';
-                echo base_url() . 'users/profile/';
-                foreach($usernames as $username){
-                  if($username['id']==$monthly_review['review_manager'])
-                    echo $username['username'];
-                }
-                echo '">';
-                foreach($usernames as $username){
-                  if($username['id']==$monthly_review['review_manager'])
-                    echo $username['username'];
-                }
-                echo '</a></td>';
-
-
-                // STAT 1 //
-                echo '<td>';
-                foreach($review_marks as $review_mark){
-                  if($review_mark['id']==$monthly_review['stat1'])
-                    echo $review_mark['name'];
-                }
-                echo '</td>';
-
-
-                // STAT 2 //
-                echo '<td>';
-                foreach($review_marks as $review_mark){
-                  if($review_mark['id']==$monthly_review['stat2'])
-                    echo $review_mark['name'];
-                }
-                echo '</td>';
-
-
-
-                // STAT 3 //
-                echo '<td>';
-                foreach($review_marks as $review_mark){
-                  if($review_mark['id']==$monthly_review['stat3'])
-                    echo $review_mark['name'];
-                }
-                echo '</td>';
-
-
-                // STAT 4 //
-                echo '<td>';
-                foreach($review_marks as $review_mark){
-                  if($review_mark['id']==$monthly_review['stat4'])
-                    echo $review_mark['name'];
-                }
-                echo '</td>';
-
-
-                // STAT 5 //
-                echo '<td>';
-                foreach($review_marks as $review_mark){
-                  if($review_mark['id']==$monthly_review['stat5'])
-                    echo $review_mark['name'];
-                }
-                echo '</td>';
-
-                  
-                  }
-            echo '</table>';
-
-             } 
-              else echo "No monthly reviews!"; 
-            ?>
-  </div>
-
-
-
-          </div>
         </div><!-- /#right -->
       </div><!-- /#wrap -->
     

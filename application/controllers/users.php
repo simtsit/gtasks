@@ -69,12 +69,7 @@ class Users extends CI_Controller {
 		$data['positions'] = $this->position->all_positions();
 		$data['users'] = $this->user->get_user($username);
 
-		$data['monthly_reviews'] = $this->monthly_review->user_monthly_reviews($data['users'][0]['id']);
-
-		$data['usernames'] = $this->user->all_users();
-		$data['review_marks'] = $this->review_mark->all_review_marks();
-		
-
+		$data['usernames'] = $this->user->all_users();		
 
 
 

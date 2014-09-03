@@ -117,9 +117,7 @@ $autoload['model'] = array(
 	'project', 		// loads all projects
 	'task_type', 	// loads all task types
 	'task_statuses',	// loads all task statuses
-	'position',		// loads all positions
-	'review_mark',	// loads all monthly review marks
-	'monthly_review'	// loads all monthly reviews
+	'position'		// loads all positions
 	);
 
 

@@ -35,7 +35,6 @@
                 </a> 
               </li>
 
-
               <li class="<?php if($active == "Projects") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>projects">
                   <i class="fa fa-pencil"></i>&nbsp; Projects</a> 
@@ -52,29 +51,18 @@
               </li>
 
               <li>
-                <a href="<?php echo base_url(); ?>daily_target">
-                  <i class="fa fa-font"></i>&nbsp; Don't click this!</a> 
-              </li>
-
-              <li>
-                <a href="<?php echo base_url(); ?>daily_targets">
-                  <i class="fa fa-check-circle-o"></i>&nbsp; Daily Targets</a> 
-              </li>
-
-              <li>
-                <a href="<?php echo base_url(); ?>monthly_reviews">
-                  <i class="fa fa-bar-chart-o"></i>&nbsp; Monthly Reviews</a> 
+                <a href="<?php echo base_url(); ?>dontclickhere">
+                  <i class="fa fa-warning"></i>&nbsp; Don't click this!</a> 
               </li>
 
               <li>
                 <a href="<?php echo base_url(); ?>monthly_targets">
-                  <i class="fa fa-table"></i>&nbsp; Monthly Targets</a> 
+                  <i class="fa fa-bar-chart-o"></i>&nbsp; History Log</a> 
               </li>
 
               <li>
-                <a href="<?php echo base_url(); ?>monthly_targets">
-                  <i class="fa fa-warning"></i>&nbsp; Log</a> 
+                <a href="<?php echo base_url(); ?>logout">
+                  <i class="fa fa-power-off"></i>&nbsp; Logout</a> 
               </li>
-
         </ul><!-- /#menu -->
       </div><!-- /#left -->
