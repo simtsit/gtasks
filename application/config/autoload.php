@@ -110,14 +110,15 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array(
-	'task',		// loads all tasks
-	'priority',	// loads all prioritys
-	'user', 	// loads all users
-	'customer', // loads all customers
-	'project', 	// loads all projects
-	'task_type', // loads all task types
-	'position',	// loads all positions
-	'review_mark',		// loads all monthly review marks
+	'task',			// loads all tasks
+	'priority',		// loads all prioritys
+	'user', 		// loads all users
+	'customer', 	// loads all customers
+	'project', 		// loads all projects
+	'task_type', 	// loads all task types
+	'task_statuses',	// loads all task statuses
+	'position',		// loads all positions
+	'review_mark',	// loads all monthly review marks
 	'monthly_review'	// loads all monthly reviews
 	);
 

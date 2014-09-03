@@ -44,8 +44,10 @@ class Tasks extends CI_Controller {
 		$data['priorities'] = $this->priority->all_priorities();
 		$data['users'] = $this->user->all_user_names();
 		$data['task_types'] = $this->task_type->all_task_types();
+		$data['projects'] = $this->project->all_projects();
+		$data['task_statuses'] = $this->task_statuses->all_task_statuses();
+		
 		$this->load->view('tasks', $data);
-
 	}
 
 	public function create(){

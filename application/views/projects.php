@@ -34,6 +34,10 @@
                       echo "<td>" . $project['URL'] . "</td>";
                     }
                   ?>
+                  <tr class="bold">
+                    <td>Total:</td>
+                    <td><?php echo count($projects); ?></td>
+                    <td></td>
               </table>
             </div><!-- end of Project List -->
             <div class="col-md-5">

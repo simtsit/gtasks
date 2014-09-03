@@ -36,12 +36,12 @@
               </li>
 
 
-              <li>
+              <li class="<?php if($active == "Projects") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>projects">
                   <i class="fa fa-pencil"></i>&nbsp; Projects</a> 
               </li>
 
-              <li>
+              <li class="<?php if($active == "Tasks") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>tasks">
                   <i class="fa fa-tasks"></i>&nbsp; Tasks</a> 
               </li>
