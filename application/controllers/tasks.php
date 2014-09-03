@@ -50,6 +50,12 @@ class Tasks extends CI_Controller {
 		$this->load->view('tasks', $data);
 	}
 
+public function mytasks(){
+	//Code coming soon....
+}
+
+
+
 	public function create(){
 		$data['title'] = 'Create Task';
 		$data['active'] = 'Tasks';
@@ -105,6 +111,11 @@ class Tasks extends CI_Controller {
 		$this->task->insert_task($taskinfo);
 		$this->load->view('tasks', $data);
 
+	}
+	
+	
+	public function edit(){
+		// Code coming soon...
 	}
 
 }
