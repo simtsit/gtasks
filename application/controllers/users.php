@@ -57,6 +57,7 @@ class Users extends CI_Controller {
 		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
+		$info['target_user'] = $this->user->get_user_details($username);
 
 		foreach($info['positions'] as $position){
 			if ($info['active_user'][0]['position'] == $position['id'])
@@ -65,13 +66,19 @@ class Users extends CI_Controller {
 
 		$data['first_name'] = $info['active_user'][0]['first_name'];
 
-		
-		$data['positions'] = $this->position->all_positions();
 		$data['users'] = $this->user->get_user($username);
 
+		$data['tasks_for'] = $this->task->get_tasks_set_for($data['users'][0]['id']);
+		$data['tasks_from'] = $this->task->get_tasks_set_from($data['users'][0]['id']);
+		
+		$data['positions'] = $this->position->all_positions();
+
+		$data['priorities'] = $this->priority->all_priorities();
+
 		$data['usernames'] = $this->user->all_users();		
-
-
+		$data['task_types'] = $this->task_type->all_task_types();
+		$data['projects'] = $this->project->all_projects();
+		$data['task_statuses'] = $this->task_status->all_task_statuses();
 
 		
 		$this->load->view('user_profile', $data);

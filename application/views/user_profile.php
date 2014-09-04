@@ -10,7 +10,8 @@
       <div id="content">
         <div class="outer">
           <div class="inner bg-light lter">
-
+            <div class="row">
+              <div class="col-md-6"> <!-- User Stats Column Starts -->
               <?php
                   foreach($users as $user) { 
               ?>
@@ -127,6 +128,203 @@ $(function () {
 });</script>
 
 <div id="chart_container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+</div> <!-- User Stats Column Ends -->
+  <div class="col-md-6"> <!-- User Task List Starts -->
+      
+      <div> <!-- Tasks For List Starts -->
+              <h3 align=center>Tasks set for <?php echo $users[0]['username'];?></h3>
+           <?php
+             if(count($tasks_for)==0)
+              echo "There are no tasks set for this user yet.";
+              else { ?>
+
+              <table class="table table-condensed table-hovered sortableTable">
+                <tr>
+                  <th>Priority</th>
+                  <th>Task Type</th>
+                  <th>Set From</th>
+                  <th>Set For</th>
+                  <th>Project</th>
+                  <th>Status</th>
+                </tr>
+
+                  <?php
+                    foreach($tasks_for as $task) {
+                      echo "<tr>";
+
+                      echo "<td class=";
+                      foreach ($priorities as $priority)
+                        if ($task['priority']==$priority['id'])
+                          echo $priority['name'];
+                      echo ">";
+                      foreach ($priorities as $priority)
+                        if ($task['priority']==$priority['id'])
+                      echo $priority['name'];
+                      echo "</td>";
+
+                      echo "<td>";
+                        foreach($task_types as $task_type){
+                        if ($task_type['id']==$task['type'])
+                          echo $task_type['name'];
+                      }
+                      echo "</td>";
+
+
+                      // Set from
+
+                      echo '<td><a href="';
+                      echo base_url() . 'users/profile/';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfrom'])
+                          echo $user['username'];
+                      }
+                      echo '">';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfor'])
+                          echo $user['username'];
+                      }
+                      echo '</a></td>';
+
+
+                      // Set for 
+
+                      echo '<td><a href="';
+                      echo base_url() . 'users/profile/';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfor'])
+                          echo $user['username'];
+                      }
+                      echo '">';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfor'])
+                          echo $user['username'];
+                      }
+                      echo '</a></td>';
+
+
+                      echo "<td>";
+                      foreach($projects as $project){
+                        if($task['project']==$project['id'])
+                          echo $project['name'];
+                      }
+
+                      echo "</td>";
+
+                      echo "<td>";
+                      foreach($task_statuses as $task_status){
+                        if($task['status']==$task_status['id'])
+                          echo $task_status['name'];
+                      }
+                      echo "</td>";
+
+
+                      echo "</tr>";
+                    }
+                  ?>
+              </table>
+              <?php } ?>
+
+      </div> <!-- Tasks For List Ends-->
+      <div> <!-- Task From List Starts -->
+             <h3 align=center>Tasks set from <?php echo $users[0]['username'];?></h3>
+
+             <?php
+             if(count($tasks_for)==0)
+              echo "This user haven't set any task yet.";
+
+              else { ?>
+
+              <table class="table table-condensed table-hovered sortableTable">
+                <tr>
+                  <th>Priority</th>
+                  <th>Task Type</th>
+                  <th>Set From</th>
+                  <th>Set For</th>
+                  <th>Project</th>
+                  <th>Status</th>
+                </tr>
+
+                  <?php
+                    foreach($tasks_from as $task) {
+                      echo "<tr>";
+
+                      echo "<td class=";
+                      foreach ($priorities as $priority)
+                        if ($task['priority']==$priority['id'])
+                          echo $priority['name'];
+                      echo ">";
+                      foreach ($priorities as $priority)
+                        if ($task['priority']==$priority['id'])
+                      echo $priority['name'];
+                      echo "</td>";
+
+                      echo "<td>";
+                        foreach($task_types as $task_type){
+                        if ($task_type['id']==$task['type'])
+                          echo $task_type['name'];
+                      }
+                      echo "</td>";
+
+
+                      // Set from
+
+                      echo '<td><a href="';
+                      echo base_url() . 'users/profile/';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfrom'])
+                          echo $user['username'];
+                      }
+                      echo '">';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfrom'])
+                          echo $user['username'];
+                      }
+                      echo '</a></td>';
+
+
+                      // Set for 
+
+                      echo '<td><a href="';
+                      echo base_url() . 'users/profile/';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfor'])
+                          echo $user['username'];
+                      }
+                      echo '">';
+                      foreach($users as $user){
+                        if($user['id']==$task['setfor'])
+                          echo $user['username'];
+                      }
+                      echo '</a></td>';
+
+
+                      echo "<td>";
+                      foreach($projects as $project){
+                        if($task['project']==$project['id'])
+                          echo $project['name'];
+                      }
+
+                      echo "</td>";
+
+                      echo "<td>";
+                      foreach($task_statuses as $task_status){
+                        if($task['status']==$task_status['id'])
+                          echo $task_status['name'];
+                      }
+                      echo "</td>";
+
+
+                      echo "</tr>";
+                    }
+
+                  ?>
+              </table>
+              <?php } ?>
+      <div>
+      </div><!-- end of Task From List -->
+  </div><!--User Task List Ends -->
+
+</div> <!-- End of row -->
 
         </div><!-- /#right -->
       </div><!-- /#wrap -->

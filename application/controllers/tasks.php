@@ -57,7 +57,7 @@ class Tasks extends CI_Controller {
 		$data['active']='Tasks';
 
 		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		
+			
 		$data['first_name'] = $info['active_user'][0]['first_name'];
 		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
 
@@ -78,7 +78,7 @@ class Tasks extends CI_Controller {
 		$data['projects'] = $this->project->all_projects();
 		$data['users'] = $this->user->all_user_names();
 		$data['task_types'] = $this->task_type->all_task_types();
-		$data['task_statuses'] = $this->task_statuses->all_task_statuses();
+		$data['task_statuses'] = $this->task_status->all_task_statuses();
 		
 		$this->load->view('user_tasks', $data);
 	

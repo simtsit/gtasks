@@ -1,5 +1,5 @@
 <?php
-class Task_Statuses extends CI_Model
+class Task_Status extends CI_Model
 {
 
  public function all_task_statuses() {

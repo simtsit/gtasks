@@ -116,7 +116,7 @@ $autoload['model'] = array(
 	'customer', 	// loads all customers
 	'project', 		// loads all projects
 	'task_type', 	// loads all task types
-	'task_statuses',	// loads all task statuses
+	'task_status',	// loads all task statuses
 	'position'		// loads all positions
 	);
 
