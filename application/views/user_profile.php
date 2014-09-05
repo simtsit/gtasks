@@ -131,7 +131,7 @@ $(function () {
 </div> <!-- User Stats Column Ends -->
   <div class="col-md-6"> <!-- User Task List Starts -->
       
-      <div> <!-- Tasks For List Starts -->
+      <div class="user-tasks-for"> <!-- Tasks For List Starts -->
               <h3 align=center>Tasks set for <?php echo $users[0]['username'];?></h3>
            <?php
              if(count($tasks_for)==0)
@@ -225,7 +225,7 @@ $(function () {
               <?php } ?>
 
       </div> <!-- Tasks For List Ends-->
-      <div> <!-- Task From List Starts -->
+      <div class="user-tasks-from"> <!-- Task From List Starts -->
              <h3 align=center>Tasks set from <?php echo $users[0]['username'];?></h3>
 
              <?php

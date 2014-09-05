@@ -55,7 +55,7 @@
 
            <script>
               $(function () {
-     Highcharts.setOptions({colors: ['#993d00','#cc5200','#ff6600','#ff8533','#ffa366','#ffc299']});                
+     Highcharts.setOptions({colors: ['#993d00','#cc5200','#ff6600','#ff8533','#ffa366','#ffc299']});
         $('.project-chart').highcharts({
             chart: {
                 plotBackgroundColor: null,

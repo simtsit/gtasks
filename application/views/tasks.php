@@ -102,9 +102,11 @@
               </div>
               </div><!-- end of task list -->
               <div class="col-md-6"> <!-- Task Chart Starts -->
-                add date!<br>
-                make task title clickable!<br>
-                add chart<br>
+
+coming soon
+
+
+
               </div> <!-- end of Task Chart List -->
 
           </div> <!-- end of inner -->

@@ -10,90 +10,102 @@
       <div id="content">
         <div class="outer">
           <div class="inner bg-light lter">
-            <div class="users-list col-md-6">
-            <table class="table table-condensed table-hovered sortableTable">
-              <tr>
-                <th>#</th>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Position</th>
-                <th>Email</th>
-              </tr>
+            <div class="users-list col-md-7">
+
+                <div class="users-block">
 
                 <?php
-                  $count=0;
-                  foreach($users as $user) {
-                    $count++;
-                    echo "<tr>";
-                    echo "<td>" . $count . "</td>";
-                    echo '<td><a href="';
-                    echo base_url() . 'users/profile/' . $user['username'];
-                    echo '">'. $user['username']. '</a></td>';
+                foreach($users as $user){
+                    echo '<div class="user-block">';
+                    echo '<a href="' . base_url() . 'users/profile/' . $user['username'] .'">';
+                    echo '<img class="center media-object img-thumbnail user-img" alt="User Picture" src="' . base_url() . 'dist/assets/img/users/' . $user['preview'] . '">';
+                    echo '</a>';
+                    echo $user['first_name'] . ' ' . $user['last_name'] . '<br>';
+                    foreach($positions as $position){
+                        if($user['position']==$position['id'])
+                            echo $position['name']. "<br>";
+                    }
+                    echo 'Tasks: <span class="bold">';
+                    $taskcount=0;
+                    foreach($tasks as $task){
+                        if($task['setfor']==$user['id'])
+                            $taskcount++;
+                    }
+                    $tasks[$user['username']]=$taskcount;
 
+                    echo $tasks[$user['username']] . '</span>';
+                    echo '</div>';
+                }
 
-                    echo "<td>" . $user['first_name'] . "</td>";
-                    echo "<td>" . $user['last_name'] . "</td>";
-                    echo "<td>";
-                    foreach($positions as $position) {
-                      if($position['id']==$user['position']) echo $position['name'];
-                    } 
-                    echo "</td>";
-                    echo "<td>" . $user['email'] . "</td>";
-                  }
-                ?>
-            </table>
+            ?>
+        </div>
           </div> <!-- end of users list -->
 
           <script>
           $(function () {
+    Highcharts.setOptions({colors: ['#ff6600','#ff8533','#ffa366','#ffc299']});                            
     $('.users-chart').highcharts({
+
         chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: 1,//null,
-            plotShadow: false
+            type: 'column'
         },
         title: {
-            text: 'Browser market shares at a specific website, 2014'
+            text: 'World\'s largest cities per 2014'
         },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        subtitle: {
+            text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
         },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    style: {
-                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-                    }
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
                 }
             }
         },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Population (millions)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
+        },
         series: [{
-            type: 'pie',
-            name: 'Browser share',
+            name: 'Population',
             data: [
-                ['Firefox',   45.0],
-                ['IE',       26.8],
-                {
-                    name: 'Chrome',
-                    y: 12.8,
-                    sliced: true,
-                    selected: true
-                },
-                ['Safari',    8.5],
-                ['Opera',     6.2],
-                ['Others',   0.7]
-            ]
+
+            <?php 
+                foreach($users as $user) {
+                    echo "['" . $user['username'] . "', " . $tasks[$user['username']] . "],";
+                }
+            ?>
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                x: 4,
+                y: 10,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif',
+                    textShadow: '0 0 3px black'
+                }
+            }
         }]
     });
 });
           </script>
 
-          <div class="users-chart col-md-6" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+          <div class="users-chart col-md-5" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
           </div>
         </div><!-- /#right -->

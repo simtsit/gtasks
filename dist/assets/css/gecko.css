@@ -102,3 +102,18 @@ header.navbar-header {
  	text-align: center;
  	padding-bottom: 20px;
 }
+
+.user-block {
+	float: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 180px;	
+}
+
+
+.user-tasks-for,
+.user-tasks-from {
+	padding-bottom: 14px;
+}

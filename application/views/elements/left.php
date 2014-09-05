@@ -45,18 +45,18 @@
                   <i class="fa fa-tasks"></i>&nbsp; Tasks</a> 
               </li>
 
-              <li>
+              <li class="<?php if($active == "Users") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>users">
                   <i class="fa fa-user"></i>&nbsp; Users</a> 
               </li>
 
-              <li>
+              <li class="<?php if($active == "Dontclickhere") echo 'active'; ?>">
                 <a href="<?php echo base_url(); ?>dontclickhere">
                   <i class="fa fa-warning"></i>&nbsp; Don't click this!</a> 
               </li>
 
-              <li>
-                <a href="<?php echo base_url(); ?>monthly_targets">
+              <li class="<?php if($active == "History_log") echo 'active'; ?>">
+                <a href="<?php echo base_url(); ?>history_log">
                   <i class="fa fa-bar-chart-o"></i>&nbsp; History Log</a> 
               </li>
 

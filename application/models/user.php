@@ -51,8 +51,7 @@ public function get_user_details($username){
    return $this->db->get('users')->result_array();
 }
 
- public function all_users() {
-   $this->db->select('id, username, preview, first_name, last_name, position, email');
+ public function all_users() {   
    $this->db->where(array('active'=>1));
    return $this->db->get('users')->result_array();
  }

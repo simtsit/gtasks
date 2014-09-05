@@ -25,8 +25,7 @@ class dontclickhere extends CI_Controller {
 	public function index(){
 		
 		$data['title']="Don't Click Here";
-
-		$data['active'] = 'Users';
+		$data['active'] = 'Dontclickhere';
 
 		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
 		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 

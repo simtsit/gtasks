@@ -40,6 +40,7 @@ class Users extends CI_Controller {
 		$data['first_name'] = $info['active_user'][0]['first_name'];
 
 
+		$data['tasks'] = $this->task->all_tasks();
 		$data['positions'] = $this->position->all_positions();
 		$data['users'] = $this->user->all_users();
 		$this->load->view('users', $data);
