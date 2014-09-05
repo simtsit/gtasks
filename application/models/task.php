@@ -10,15 +10,16 @@ class Task extends CI_Model
 
   //public function get_tasks_by_project_id($project_id) {
   public function get_tasks_by_project_ids($projectids) {
+    $this->db->where(array('active'=>1));
     $this->db->where_in('project',$projectids);
     return $this->db->get('tasks')->result_array();
   }
 
   public function get_tasks_by_project_id($projectid) {
+    $this->db->where(array('active'=>1));
     $this->db->where('project',$projectid);
     return $this->db->get('tasks')->result_array();
   }
-
 
   public function get_tasks_set_for($userid){
    $this->db->where(array('active'=>1));

@@ -10,7 +10,13 @@
       <div id="content">
         <div class="outer">
           <div class="inner bg-light lter">
-            <div class="col-md-6"> <!-- Task List starts -->
+              <div class="col-md-4"> <!-- Project Info Starts -->
+                <h2><?php echo $projects[0]['name']; ?></h2>
+                <p><span class="bold">Description:</span> <?php echo $projects[0]['description']; ?></p>
+                <p><span class="bold">URL:</span> <?php echo $projects[0]['description']; ?></p>
+              </div> <!--Project Info Ends-->
+
+            <div class="col-md-8"> <!-- Task List starts -->
               <table class="table table-condensed table-hovered sortableTable">
                 <tr>
                   <th>Priority</th>
@@ -62,7 +68,7 @@
                       // Set for 
 
                       echo '<td><a href="';
-                      echo base_url() . 'users/project_info/';
+                      echo base_url() . 'users/profile/';
                       foreach($users as $user){
                         if($user['id']==$task['setfor'])
                           echo $user['username'];
@@ -75,18 +81,11 @@
                       echo '</a></td>';
 
 
-                      echo '<td><a href="';
-                      echo base_url() . 'projects/profile/';
-                      foreach($projects as $project){
-                        if($task['project']==$project['id'])
-                          echo $project['codename'];
-                      }
-                      echo '">';
+                      echo "<td>";
                       foreach($projects as $project){
                         if($task['project']==$project['id'])
                           echo $project['name'];
                       }
-                      echo "</a>";
                       echo "</td>";
 
                       echo "<td>";
@@ -107,14 +106,6 @@
                 </form>
               </div>
               </div><!-- end of task list -->
-              <div class="col-md-6"> <!-- Task Chart Starts -->
-
-coming soon
-
-
-
-              </div> <!-- end of Task Chart List -->
-
           </div> <!-- end of inner -->
         </div><!-- /#right -->
       </div><!-- /#wrap -->

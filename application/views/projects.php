@@ -20,9 +20,11 @@
 
                   <?php
                     foreach($projects as $project) {
+                      
                       echo "<tr>";
-                      echo "<td>" . $project['name'] . "</td>";                    
+                      echo '<td><a href="' . base_url() . 'projects/project_info/' . $project['codename'] .'">' .$project['name'] . '</a></td>';
                       echo "<td>";
+
                       foreach($customers as $customer){
                         if ($project['customer']==$customer['id']) {
                           echo '<a href="' . base_url() . 'customers/profile/' . $customer['username'] . '">';
