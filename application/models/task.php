@@ -39,11 +39,14 @@ public function insert_task($taskinfo) {
     $this->load->database(); 
 
     $taskdetails = array(
+      
            'setfrom' => $taskinfo['setfrom'],
            'setfor' => $taskinfo['setfor'],
            'type' => $taskinfo['task_type'],
+           'project' => $taskinfo['project'],
            'priority' => $taskinfo['priority'],
            'description'=> $taskinfo['description'],
+           'status' => 1,
            'active'=> 1
         );
 

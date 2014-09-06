@@ -191,7 +191,7 @@ $(function () {
  Highcharts.setOptions({colors: ['#90ED7D', '#7CB5EC', '#F7A35C','#FF0000']});  
     $('.task-priority-chart').highcharts({
         title: {
-            text: 'Combination chart'
+            text: 'Tasks by role chart'
         },
         xAxis: {
             categories: [

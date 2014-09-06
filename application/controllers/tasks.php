@@ -104,6 +104,9 @@ class Tasks extends CI_Controller {
 		$data['priorities'] = $this->priority->all_priorities();
 		$data['users'] = $this->user->all_user_names();
 		$data['task_types'] = $this->task_type->all_task_types();
+		$data['projects'] = $this->project->all_projects();
+		$data['task_statuses'] = $this->task_status->all_task_statuses();
+
 		$this->load->view('add_task_form', $data);
 	}
 
@@ -130,15 +133,21 @@ class Tasks extends CI_Controller {
 		$data['task_types'] = $this->task_type->all_task_types();
 		$data['users'] = $this->user->all_user_names();	
 		$data['priorities'] = $this->priority->all_priorities();
-
-		$taskinfo['setfrom'] = $this->input->post("setfrom");
-		$taskinfo['setfor'] = $this->input->post("setfor");
-		$taskinfo['priority'] = $this->input->post('priority');
-		$taskinfo['description'] = $this->input->post("description");
-		$taskinfo['task_type'] = $this->input->post("task_type");
+		$data['projects'] = $this->project->all_projects();
 
 
+			$taskinfo['setfrom'] = $info['active_user'][0]['id'];
+			$taskinfo['setfor'] = $this->input->post("setfor");
+			$taskinfo['project'] = $this->input->post("project");
+			$taskinfo['priority'] = $this->input->post('priority');
+			$taskinfo['description'] = $this->input->post("description");
+			$taskinfo['task_type'] = $this->input->post("task_type");
+
+
+		$data['task_statuses'] = $this->task_status->all_task_statuses();
+		
 		$this->task->insert_task($taskinfo);
+
 		$this->load->view('tasks', $data);
 
 	}

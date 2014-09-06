@@ -13,8 +13,7 @@
             <div class="col-md-12"> <!-- Task For List starts -->
               
               <p align=center><img src="<?php echo base_url() . 'dist/assets/img/varius/grumpy-cat.jpg'; ?>"></p>
-              <h3 align=center>...I warned you !!!</h3> 
-                   
+                  
               </div><!-- End of Task For list -->
 
           </div> <!-- end of inner -->

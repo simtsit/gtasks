@@ -41,7 +41,7 @@ public function verify_user($username, $password) {
 }
 
 public function active_user_details($username){
-   $this->db->select('username, preview, position, first_name');
+   $this->db->select('id, username, preview, position, first_name');
    $this->db->where('email',$username);
    return $this->db->get('users')->result_array();
 }

@@ -25,19 +25,6 @@
                     <h5>Add new Task</h5>
 
                     <!-- .toolbar -->
-                    <div class="toolbar">
-                      <nav style="padding: 8px;">
-                        <a href="javascript:;" class="btn btn-default btn-xs collapse-box">
-                          <i class="fa fa-minus"></i>
-                        </a> 
-                        <a href="javascript:;" class="btn btn-default btn-xs full-box">
-                          <i class="fa fa-expand"></i>
-                        </a> 
-                        <a href="javascript:;" class="btn btn-danger btn-xs close-box">
-                          <i class="fa fa-times"></i>
-                        </a> 
-                      </nav>
-                    </div><!-- /.toolbar -->
                   </header>
                   <div id="collapse2" class="body">
                     <form class="form-horizontal" id="popup-validation" action="add" method="post">
@@ -57,12 +44,12 @@
 
 
                       <div class="form-group">
-                        <label class="control-label col-lg-4">Set from</label>
+                        <label class="control-label col-lg-4">Project</label>
                         <div class="col-lg-4">
-                          <select name="setfrom" id="setfrom" class="validate[required] form-control">
-                            <option value="">Choose a user</option>
-                            <?php foreach($users as $user){
-                              echo '<option value="' . $user['id'] . '">' . $user['username'] . '</option>';
+                          <select name="project" id="project" class="validate[required] form-control">
+                            <option value="">Choose a Project</option>
+                            <?php foreach($projects as $project){
+                              echo '<option value="' . $project['id'] . '">' . $project['name'] . '</option>';
                             }
                             ?>
                           </select>
@@ -99,15 +86,7 @@
                         <div class=" col-lg-4">
                           <input class="validate[required,custom[email]] form-control" type="text" name="description" id="description" />
                         </div>
-                      </div>
-
-<!--                       <div class="form-group">
-                        <label class="control-label col-lg-4">Date</label>
-                        <div class="col-lg-4">
-                          <input type="date" id="date2" name="date2" class="form-control">
-                          <span class="help-block">ISO 8601 dates only YYYY-mm-dd</span> 
-                        </div>
-                      </div>     -->                    
+                      </div>              
 
                       <div class="form-actions no-margin-bottom" style="text-align: center;">
                         <input type="submit" value="Add Task" class="btn btn-primary">
