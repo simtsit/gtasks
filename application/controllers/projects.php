@@ -63,7 +63,7 @@ class Projects extends CI_Controller {
 
 
 
-	public function project_info($projectcodename=''){
+	public function project_info($codename=''){
 		$data['title'] = 'Projects';
 		$data['active'] = 'Projects';
 
@@ -80,7 +80,7 @@ class Projects extends CI_Controller {
 		$data['first_name'] = $info['active_user'][0]['first_name'];
 		
 		$data['customers'] = $this->customer->all_customers();
-		$data['projects'] = $this->project->get_project_by_project_codename($projectcodename);
+		$data['projects'] = $this->project->get_project_by_project_codename($codename);
 
 		$count=0;
 		foreach ($data['customers'] as $customer){

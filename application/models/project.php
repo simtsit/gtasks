@@ -13,9 +13,9 @@ class Project extends CI_Model
 		return $this->db->get('projects')->result_array();
 	}
 
-	public function get_project_by_project_codename($projectcodename) {
+	public function get_project_by_project_codename($codename) {
 		$this->db->where(array('active'=>1));
-		$this->db->where('codename', $projectcodename);
+		$this->db->where('codename', $codename);
 	return $this->db->get('projects')->result_array();
 	}
 }

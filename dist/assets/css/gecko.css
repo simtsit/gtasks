@@ -100,8 +100,14 @@ header.navbar-header {
 
 .form-block {
  	text-align: center;
+ 	padding-top: 20px;
  	padding-bottom: 20px;
 }
+
+.stats-block {
+ 	padding-top: 30px;
+ }
+
 
 .user-block {
 	float: left;

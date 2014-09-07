@@ -20,11 +20,6 @@
               </div>
 
             <div class="text-center col-md-5">
-              <a class="quick-btn" href="<?php echo base_url().'users'; ?>">
-                <i class="fa fa-user fa-2x"></i>
-                <span>Users</span> 
-                <span class="label label-default"><?php echo count($users); ?></span> 
-              </a> 
               <a class="quick-btn" href="<?php echo base_url().'customers'; ?>">
                 <i class="fa fa-globe fa-2x"></i>
                 <span>Customers</span> 
@@ -36,9 +31,14 @@
                 <span class="label label-info"><?php echo count($projects); ?></span> 
               </a> 
               <a class="quick-btn" href="<?php echo base_url().'tasks'; ?>">
-                <i class="fa fa-check fa-2x"></i>
+                <i class="fa fa-tasks fa-2x"></i>
                 <span>Tasks</span> 
                 <span class="label label-danger"><?php echo count($tasks); ?></span> 
+              </a> 
+              <a class="quick-btn" href="<?php echo base_url().'users'; ?>">
+                <i class="fa fa-user fa-2x"></i>
+                <span>Users</span> 
+                <span class="label label-default"><?php echo count($users); ?></span> 
               </a> 
             </div>
 

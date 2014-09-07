@@ -11,11 +11,13 @@
         <div class="outer">
           <div class="inner bg-light lter">
             <div class="col-md-6"> <!-- Task List starts -->
-              <div class="form-block">
-                <form action="<?php echo base_url(); ?>tasks/create">
-              <input type="submit" value="Add a Task" class="btn btn-primary">
-                </form>
-              </div>
+
+                <div class="form-block"> <!-- Form Block Starts -->
+                  <form action="<?php echo base_url(); ?>tasks/create">
+                    <input type="submit" value="Add a Task" class="btn btn-primary">
+                  </form>
+                </div>  <!-- Form Block Ends -->
+
               <table class="table table-condensed table-hovered sortableTable">
                 <tr>
                   <th>Priority</th>
@@ -81,7 +83,7 @@
 
 
                       echo '<td><a href="';
-                      echo base_url() . 'projects/profile/';
+                      echo base_url() . 'projects/project_info/';
                       foreach($projects as $project){
                         if($task['project']==$project['id'])
                           echo $project['codename'];
@@ -108,30 +110,17 @@
               </table>
               </div><!-- end of task list -->
               <div class="col-md-6"> <!-- Task Chart Starts -->
-      <script>
+          <script>
 $(function () {
- Highcharts.setOptions({colors: ['#90ED7D', '#7CB5EC', '#F7A35C','#FF0000']});  
+   Highcharts.setOptions({colors: ['#90ED7D', '#7CB5EC', '#F7A35C','#FF0000']});  
     $('.task-priority-chart').highcharts({
-            <?php
-              $normaltaskcount=0;
-              $mediumtaskcount=0;
-              $urgenttaskcount=0;
-              $criticaltaskcount=0;
-
-              foreach($tasks as $task){
-                  if($task['priority']==1) $normaltaskcount++;
-                  if($task['priority']==2) $mediumtaskcount++;
-                  if($task['priority']==3) $urgenttaskcount++;
-                  if($task['priority']==4) $criticaltaskcount++;
-              }
-            ?>
-      chart: {
+        chart: {
             plotBackgroundColor: null,
             plotBorderWidth: 1,//null,
             plotShadow: false
         },
         title: {
-            text: 'Browser market shares at a specific website, 2014'
+            text: ''
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -153,18 +142,50 @@ $(function () {
             type: 'pie',
             name: 'Browser share',
             data: [
-                ['<?php echo $priorities[0]['name'] ?>', <?php echo $nomrmaltaskcount; ?>],
-                ['<?php echo $priorities[1]['name'] ?>', <?php echo $mediumtaskcount; ?>],
-                ['<?php echo $priorities[2]['name'] ?>', <?php echo $urgenttaskcount; ?>],
-                ['<?php echo $priorities[3]['name'] ?>', <?php echo $criticalaltaskcount; ?>],
+
+
+            <?php
+              $normaltaskcount=0;
+              $mediumtaskcount=0;
+              $urgenttaskcount=0;
+              $criticaltaskcount=0;
+
+              foreach($tasks as $task){
+                  if($task['priority']==1) $normaltaskcount++;
+                  if($task['priority']==2) $mediumtaskcount++;
+                  if($task['priority']==3) $urgenttaskcount++;
+                  if($task['priority']==4) $criticaltaskcount++;
+              }
+
+                echo "['Low', " .$normaltaskcount . "],";
+                echo "['Medium', " .$mediumtaskcount . "],";
+                echo "['Urgent', " .$urgenttaskcount . "],";
+                echo "['Critical', " .$criticaltaskcount . "],";
+            ?>
+             
             ]
         }]
     });
 });
 
+
+
           </script>
           <div class="row">
-              <div class="task-priority-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+              <div class="col-md-7 task-priority-chart" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+              <div class="col-md-5"> <!-- Stats Block Start -->
+                <div class="stats-block">
+                  <h4>Task Count</h4>
+                  <?php
+                      echo '<table width=70%>';
+                      echo '<tr><td><span class="Low bold">Low:</span></td><td>' . $normaltaskcount . '</td></tr>';
+                      echo '<tr><td><span class="Medium bold">Medium:</span></td><td>' .  $mediumtaskcount . '</td></tr>';
+                      echo '<tr><td><span class="Urgent bold">Urgent:</span></td><td>' .  $urgenttaskcount . '</td></tr>';
+                      echo '<tr><td><span class="Critical bold">Critical:</span></td><td>' .  $criticaltaskcount . '</td></tr>';
+                      echo '</table>';
+                  ?>
+                </div> 
+            </div> <!-- Form and Stats block End -->
           </div> <!-- end of div row -->
 
 <script>
@@ -333,13 +354,6 @@ $(function () {
           <div class="row">
               <div class="task-type-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
           </div> <!-- end of div row -->
-
-
-
-
-
-
-
 
               </div> <!-- end of Task Chart List -->
 
