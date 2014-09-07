@@ -27,17 +27,17 @@ class Users extends CI_Controller {
 		$data['title'] = 'Users list';
 		$data['active'] = 'Users';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['first_name'] = $data['active_user'][0]['first_name'];
 
 
 		$data['tasks'] = $this->task->all_tasks();
@@ -54,18 +54,18 @@ class Users extends CI_Controller {
 		$data['title'] = $username . " user's profile";
 		$data['active'] = 'Users';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
 		$info['target_user'] = $this->user->get_user_details($username);
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['first_name'] = $data['active_user'][0]['first_name'];
 
 		$data['users'] = $this->user->get_user($username);
 

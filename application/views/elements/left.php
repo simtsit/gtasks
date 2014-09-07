@@ -4,13 +4,18 @@
             <span class="fa fa-user"></span> 
           </div>
           <div class="user-wrapper bg-dark">
-            <a class="user-link" href="">
+            <a class="user-link" href="<?php echo base_url() . 'users/profile/' . $active_user[0]['username']; ?>">
               <img class="media-object img-thumbnail user-img" alt="User Picture" src="<?php echo $preview; ?>"> 
             </a> 
             <div class="media-body">
               <br>
               <ul class="list-unstyled user-info">
-                <li><font color=orange><?php echo $first_name; ?></font></li>
+                <li>
+                  <a class="user-link" href="<?php echo base_url() . 'users/profile/' . $active_user[0]['username']; ?>">
+                    <font color=orange><?php echo $active_user[0]['first_name'] . ' ' . $active_user[0]['last_name']; ?></font>
+                  </a>
+                </li>
+                <br>
                 <li><?php echo $position; ?></li>
               </ul>
             </div>

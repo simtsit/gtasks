@@ -22,8 +22,8 @@
               <p class="page-title">GeckoTasks | GeckoWebWorks.com</p>
               <!-- .nav -->
               <ul class="nav navbar-nav">
-                <li><a href="users/profile/<?php echo $_SESSION['user'] ?>">My Profile</a></li>
-                <li><a href="tasks/mytasks/<?php echo $_SESSION['user']; ?>">My Tasks</a></li>
+                <li><a href="<?php echo base_url(); ?>users/profile/<?php echo $_SESSION['user'] ?>">My Profile</a></li>
+                <li><a href="<?php echo base_url(); ?>tasks/mytasks/<?php echo $_SESSION['user']; ?>">My Tasks</a></li>
                 <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
               </ul><!-- /.nav -->
             </div>
@@ -42,6 +42,8 @@
               if($active=="Monthly Reviews") echo " fa-bar-chart-o";
               if($active=="Monthly Targets") echo " fa-table";
               if($active=="Logs") echo " fa-warning";
+              if($active=="Dontclickhere") echo " fa-warning";
+              if($active=="History_log") echo " fa-bar-chart-o";
               ?>
               ">
               </i>&nbsp; <?php echo $title; ?></i>

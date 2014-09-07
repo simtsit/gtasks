@@ -123,3 +123,7 @@ header.navbar-header {
 .user-tasks-from {
 	padding-bottom: 14px;
 }
+
+rect {
+	stroke-width: 0;
+}

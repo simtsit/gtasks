@@ -38,9 +38,9 @@ class Login extends CI_Controller {
 				// person has an account
 				$_SESSION['username'] = $this->input->post('email_address');
 				
-				$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
+				$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
 
-				$_SESSION['user'] = $info['active_user'][0]['username'];
+				$_SESSION['user'] = $data['active_user'][0]['username'];
 
 				redirect('dashboard');
 			}

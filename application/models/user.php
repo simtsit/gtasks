@@ -41,12 +41,14 @@ public function verify_user($username, $password) {
 }
 
 public function active_user_details($username){
-   $this->db->select('id, username, preview, position, first_name');
+   $this->db->where(array('active'=>1));
+   // $this->db->select('id, username, preview, position, first_name');
    $this->db->where('email',$username);
    return $this->db->get('users')->result_array();
 }
 
 public function get_user_details($username){
+   $this->db->where(array('active'=>1));
    $this->db->where('username',$username);
    return $this->db->get('users')->result_array();
 }
@@ -57,14 +59,15 @@ public function get_user_details($username){
  }
 
  public function all_user_names() {
+   $this->db->where(array('active'=>1));
    $this->db->select('id, username');
    return $this->db->get('users')->result_array();
  }
 
 
  public function get_user($username){
-   $this->db->select('id, username, preview, first_name, last_name, position, email, stat1, stat2, stat3, stat4, stat5, stat6');
-   $this->db->where('users.username',$username);
+   $this->db->where(array('active'=>1));
+   $this->db->where('username',$username);
    return $this->db->get('users')->result_array();
  }
  

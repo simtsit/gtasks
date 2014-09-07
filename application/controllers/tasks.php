@@ -29,18 +29,18 @@ class Tasks extends CI_Controller {
 		$data['title'] = 'Task list';
 		$data['active'] = 'Tasks';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
 		
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['first_name'] = $data['active_user'][0]['first_name'];
 		$data['tasks'] = $this->task->all_tasks();
 		$data['priorities'] = $this->priority->all_priorities();
 		$data['users'] = $this->user->all_user_names();
@@ -56,19 +56,19 @@ class Tasks extends CI_Controller {
 		$data['title'] = $username . "'s Tasks";
 		$data['active']='Tasks';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
 			
-		$data['first_name'] = $info['active_user'][0]['first_name'];
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['first_name'] = $data['active_user'][0]['first_name'];
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 
 		$info['positions']=$this->position->all_positions();
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$info['target_user'] = $this->user->get_user_details($username);
+		$info['target_user'] = $this->user->get_user($username);
 		
 		$data['tasks_for'] = $this->task->get_tasks_set_for($info['target_user'][0]['id']);
 		$data['tasks_from'] = $this->task->get_tasks_set_from($info['target_user'][0]['id']);
@@ -90,17 +90,17 @@ class Tasks extends CI_Controller {
 		$data['title'] = 'Create Task';
 		$data['active'] = 'Tasks';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];		
+		$data['first_name'] = $data['active_user'][0]['first_name'];		
 		$data['priorities'] = $this->priority->all_priorities();
 		$data['users'] = $this->user->all_user_names();
 		$data['task_types'] = $this->task_type->all_task_types();
@@ -117,17 +117,17 @@ class Tasks extends CI_Controller {
 		$data['title'] = 'Task added';
 		$data['active'] = 'Tasks';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['first_name'] = $data['active_user'][0]['first_name'];
 
 		$data['tasks'] = $this->task->all_tasks();
 		$data['task_types'] = $this->task_type->all_task_types();
@@ -136,7 +136,7 @@ class Tasks extends CI_Controller {
 		$data['projects'] = $this->project->all_projects();
 
 
-			$taskinfo['setfrom'] = $info['active_user'][0]['id'];
+			$taskinfo['setfrom'] = $data['active_user'][0]['id'];
 			$taskinfo['setfor'] = $this->input->post("setfor");
 			$taskinfo['project'] = $this->input->post("project");
 			$taskinfo['priority'] = $this->input->post('priority');
@@ -153,6 +153,94 @@ class Tasks extends CI_Controller {
 	}
 	
 	
+public function create_task_for_project($codename=''){
+		$data['title'] = 'Create Task';
+		$data['active'] = 'Tasks';
+
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
+		
+		$info['positions']=$this->position->all_positions();
+
+		foreach($info['positions'] as $position){
+			if ($data['active_user'][0]['position'] == $position['id'])
+				$data['position'] = $position['name']; 
+		}
+
+		$data['first_name'] = $data['active_user'][0]['first_name'];		
+		$data['priorities'] = $this->priority->all_priorities();
+		$data['users'] = $this->user->all_user_names();
+		$data['task_types'] = $this->task_type->all_task_types();
+		$data['projects'] = $this->project->all_projects();
+		$data['task_statuses'] = $this->task_status->all_task_statuses();
+
+
+		foreach($data['projects'] as $project){
+			if($project['codename']==$codename){
+				$data['project_id']=$project['id'];
+				$data['project_name']=$project['name'];
+				$data['codename']=$project['codename'];
+			}
+		}
+
+		$this->load->view('add_task_for_project_form', $data);
+	}
+
+
+
+	public function add_to($codename=''){
+
+		$data['title'] = 'Task added';
+		$data['active'] = 'Tasks';
+
+		$data['codename']=$codename;
+
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
+		
+		$info['positions']=$this->position->all_positions();
+
+		foreach($info['positions'] as $position){
+			if ($data['active_user'][0]['position'] == $position['id'])
+				$data['position'] = $position['name']; 
+		}
+
+		$data['first_name'] = $data['active_user'][0]['first_name'];
+
+		$data['tasks'] = $this->task->all_tasks();
+		$data['task_types'] = $this->task_type->all_task_types();
+		$data['users'] = $this->user->all_user_names();	
+		$data['priorities'] = $this->priority->all_priorities();
+		$data['projects'] = $this->project->all_projects();
+
+
+		foreach($data['projects'] as $project){
+			if($project['codename']==$codename){
+				$data['project_id']=$project['id'];
+				$data['project_name']=$project['name'];
+			}
+		}
+
+			$taskinfo['setfrom'] = $data['active_user'][0]['id'];
+			$taskinfo['setfor'] = $this->input->post("setfor");
+			$taskinfo['project'] = $data['project_id'];
+			$taskinfo['priority'] = $this->input->post('priority');
+			$taskinfo['description'] = $this->input->post("description");
+			$taskinfo['task_type'] = $this->input->post("task_type");
+
+
+		$data['task_statuses'] = $this->task_status->all_task_statuses();
+		
+		$this->task->insert_task($taskinfo);
+
+		$this->load->view('tasks', $data);
+
+	}
+	
+
+
+
+
 	public function edit(){
 		// Code coming soon...
 	}

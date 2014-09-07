@@ -27,17 +27,17 @@ class Projects extends CI_Controller {
 		$data['title'] = 'Projects';
 		$data['active'] = 'Projects';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['first_name'] = $data['active_user'][0]['first_name'];
 		
 		$data['customers'] = $this->customer->all_customers();
 		$data['projects'] = $this->project->all_projects();
@@ -66,21 +66,22 @@ class Projects extends CI_Controller {
 	public function project_info($codename=''){
 		$data['title'] = 'Projects';
 		$data['active'] = 'Projects';
+		$data['codename'] = $codename;
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
 
 		foreach($info['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['first_name'] = $data['active_user'][0]['first_name'];
 		
-		$data['customers'] = $this->customer->all_customers();
 		$data['projects'] = $this->project->get_project_by_project_codename($codename);
+		$data['customers'] = $this->customer->get_customer_by_id($data['projects'][0]['customer']);
 
 		$count=0;
 		foreach ($data['customers'] as $customer){
@@ -97,7 +98,7 @@ class Projects extends CI_Controller {
 		}
 
 		foreach($data['projects'] as $project) {
-			if($project['codename']==$projectcodename)
+			if($project['codename']==$codename)
 				$projectid=$project['id'];
 		}
 
@@ -106,6 +107,7 @@ class Projects extends CI_Controller {
 		$data['task_types'] = $this->task_type->all_task_types();
 		$data['users'] = $this->user->all_users();
 		$data['task_statuses'] = $this->task_status->all_task_statuses();
+
 
 		$this->load->view('project_profile', $data);
 

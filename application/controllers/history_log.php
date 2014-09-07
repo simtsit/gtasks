@@ -42,19 +42,18 @@ class History_log extends CI_Controller {
 
 		$data['title'] = 'History Log';
 		$data['active'] = 'History_log';		
-		// $data['fa-icon'] = 'fa-dashboard';
 
-		$info['active_user'] = $this->user->active_user_details($_SESSION['username']);
-		$data['preview'] = base_url() . "dist/assets/img/users/" . $info['active_user'][0]['preview']; 
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$data['positions']=$this->position->all_positions();
 
 		foreach($data['positions'] as $position){
-			if ($info['active_user'][0]['position'] == $position['id'])
+			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
 
-		$data['first_name'] = $info['active_user'][0]['first_name'];
+		$data['first_name'] = $data['active_user'][0]['first_name'];
 
 		$data['users'] = $this->user->all_users();
 		$data['customers'] = $this->customer->all_customers();

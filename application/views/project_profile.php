@@ -12,6 +12,12 @@
           <div class="inner bg-light lter">
               <div class="col-md-4"> <!-- Project Info Starts -->
                 <h2><?php echo $projects[0]['name']; ?></h2>
+                <p>
+                  <span class="bold">Customer:</span>
+                  <a href="<?php echo base_url() . 'customers/profile/' . $customers[0]['username']; ?>">
+                    <?php echo $customers[0]['first_name'] . ' ' . $customers[0]['last_name']; ?>
+                  </a>
+                </p>
                 <p><span class="bold">Description:</span> <?php echo $projects[0]['description']; ?></p>
                 <p><span class="bold">URL:</span> <?php echo $projects[0]['description']; ?></p>
               </div> <!--Project Info Ends-->
@@ -101,7 +107,7 @@
                   ?>
               </table>
               <div class="form-block">
-                <form action="<?php echo base_url(); ?>tasks/create">
+                <form action="<?php echo base_url() . 'tasks/create_task_for_project/' . $codename; ?>">
                     <input type="submit" value="Add a Task" class="btn btn-primary">
                 </form>
               </div>
