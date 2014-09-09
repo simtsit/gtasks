@@ -40,7 +40,7 @@ class dontclickhere extends CI_Controller {
 
 		
 		$data['positions'] = $this->position->all_positions();
-		$this->load->view('Dontclickhere',$data);
+		$this->load->view('dontclickhere',$data);
 
 	}
 
