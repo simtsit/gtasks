@@ -43,10 +43,12 @@
                       echo "</td>";
 
                       echo "<td>";
+                      echo '<a href="' . base_url() . 'tasks/view/' . $task['id'] . '">';
                         foreach($task_types as $task_type){
                         if ($task_type['id']==$task['type'])
                           echo $task_type['name'];
                       }
+                      echo "</a>";
                       echo "</td>";
 
 
