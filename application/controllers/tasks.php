@@ -237,6 +237,35 @@ public function create_task_for_project($codename=''){
 
 	}
 	
+	
+	public function view($taskid=''){
+		
+		$data['title'] = "View Task";
+		$data['active']='Tasks';
+
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+			
+		$data['first_name'] = $data['active_user'][0]['first_name'];
+		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
+
+		$info['positions']=$this->position->all_positions();
+
+		foreach($info['positions'] as $position){
+			if ($data['active_user'][0]['position'] == $position['id'])
+				$data['position'] = $position['name']; 
+		}
+		
+		$data['priorities'] = $this->priority->all_priorities();
+
+		$data['tasks'] = $this->task->get_task_by_id($taskid);
+
+		$data['projects'] = $this->project->all_projects();
+		$data['users'] = $this->user->all_user_names();
+		$data['task_types'] = $this->task_type->all_task_types();
+		$data['task_statuses'] = $this->task_status->all_task_statuses();
+		
+		$this->load->view('display_tasks', $data);
+	}	
 
 
 
