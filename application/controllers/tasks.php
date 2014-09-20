@@ -264,7 +264,7 @@ public function create_task_for_project($codename=''){
 		$data['task_types'] = $this->task_type->all_task_types();
 		$data['task_statuses'] = $this->task_status->all_task_statuses();
 		
-		$this->load->view('display_tasks', $data);
+		$this->load->view('display_task', $data);
 	}	
 
 
