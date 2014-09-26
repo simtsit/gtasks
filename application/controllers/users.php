@@ -58,7 +58,7 @@ class Users extends CI_Controller {
 		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
-		$info['target_user'] = $this->user->get_user_details($username);
+		$info['target_user'] = $this->user->get_user($username);
 
 		foreach($info['positions'] as $position){
 			if ($data['active_user'][0]['position'] == $position['id'])
