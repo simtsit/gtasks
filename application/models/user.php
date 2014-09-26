@@ -1,6 +1,12 @@
 <?php
+
+/* This model is related to Users. */
+
 Class User extends CI_Model
 {
+ 
+ /* This function is related for authentication. */
+
  function login($username, $password)
  {
    $this -> db -> select('id, username, password');
@@ -23,6 +29,8 @@ Class User extends CI_Model
  }
 
 
+/* This function is related to user verification. */
+
 public function verify_user($username, $password) {
    $query = $this
                ->db
@@ -32,31 +40,30 @@ public function verify_user($username, $password) {
                ->get('users');
 
    if ($query->num_rows > 0) {
-      // echo'<pre>';
-      // print_r($query->row());
-      // echo '</pre>';
       return $query->row();
    }
 
 }
 
+
+/* This function returns an array with the active user (you!). */
+
 public function active_user_details($username){
    $this->db->where(array('active'=>1));
-   // $this->db->select('id, username, preview, position, first_name');
    $this->db->where('email',$username);
    return $this->db->get('users')->result_array();
 }
 
-public function get_user_details($username){
-   $this->db->where(array('active'=>1));
-   $this->db->where('username',$username);
-   return $this->db->get('users')->result_array();
-}
+
+/* This function returns an array with all active users. */
 
  public function all_users() {   
    $this->db->where(array('active'=>1));
    return $this->db->get('users')->result_array();
  }
+
+
+/* This function returns an array with all usernames (of active users of course!). */
 
  public function all_user_names() {
    $this->db->where(array('active'=>1));
@@ -65,12 +72,16 @@ public function get_user_details($username){
  }
 
 
+/* This function returns an array with a single user, based on user's username. */
+
  public function get_user($username){
    $this->db->where(array('active'=>1));
    $this->db->where('username',$username);
    return $this->db->get('users')->result_array();
  }
  
+ 
+ /* This function returns an array with a single user, based on user's id. */
 
  public function get_user_id($username){
    $this->db->select('id');
@@ -81,5 +92,5 @@ public function get_user_details($username){
 
 }
 
-
-?>
+/* End of file user.php */
+/* Location: ./application/models/user.php */
