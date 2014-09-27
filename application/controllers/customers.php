@@ -1,10 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* This Controller is related to customers. */
+
 class Customers extends CI_Controller {
 
-
 /** 
-*   This fucntion check if user is loged in.
+*  This fucntion check if user is loged in.
 *  If not, it redirects user to login page.
 *
 */
@@ -88,7 +89,7 @@ class Customers extends CI_Controller {
 
 
 
-
+/* This function is displaying details of a user based on username */
 
 	public function profile($username=''){
 		$data['title'] = 'Customer Profile';
