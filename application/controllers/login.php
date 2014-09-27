@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* This Controller is related to login and authentication. */
+
 class Login extends CI_Controller {
 
 	function __construct()
@@ -52,6 +54,7 @@ class Login extends CI_Controller {
 	}
 
 
+/* This function is responsible for loging out. */
 
 	public function logout()
 	{
