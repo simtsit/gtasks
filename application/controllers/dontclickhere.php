@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* This Controller is related to funpage "don't click here". */
+
 class dontclickhere extends CI_Controller {
 
 /** 
