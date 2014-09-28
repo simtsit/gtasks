@@ -1,7 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Tasks extends CI_Controller {
+/* This Controller is related to Tasks. */
 
+class Tasks extends CI_Controller {
 
 /** 
 *   This fucntion check if user is loged in.
@@ -18,7 +19,6 @@ class Tasks extends CI_Controller {
 			redirect('login');
 		}
 	}
-
 
 
 	/**
@@ -50,6 +50,8 @@ class Tasks extends CI_Controller {
 		
 		$this->load->view('tasks', $data);
 	}
+
+/* This Function loads all tasks for the Active User. */
 
 	public function mytasks($username=''){
 		
@@ -85,6 +87,7 @@ class Tasks extends CI_Controller {
 	}
 
 
+/* This function creates a new task. */
 
 	public function create(){
 		$data['title'] = 'Create Task';
@@ -111,6 +114,7 @@ class Tasks extends CI_Controller {
 	}
 
 
+/* This Function adds the new task to database. */
 
 	public function add(){
 
@@ -151,7 +155,10 @@ class Tasks extends CI_Controller {
 		$this->load->view('tasks', $data);
 
 	}
+
+
 	
+/* This Function creates a task for a project, based on project codename. */	
 	
 public function create_task_for_project($codename=''){
 		$data['title'] = 'Create Task';
@@ -186,7 +193,7 @@ public function create_task_for_project($codename=''){
 		$this->load->view('add_task_for_project_form', $data);
 	}
 
-
+/* This Function is related to adding task to a project based on the project codename. */
 
 	public function add_to($codename=''){
 
@@ -237,6 +244,8 @@ public function create_task_for_project($codename=''){
 
 	}
 	
+	
+/* This Function shows a task based on the task id. */	
 	
 	public function view($taskid=''){
 		
