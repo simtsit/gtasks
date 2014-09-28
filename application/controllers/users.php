@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* This Controller is related to users. */
+
 class Users extends CI_Controller {
 
 /** 
@@ -47,9 +49,11 @@ class Users extends CI_Controller {
 	}
 
 
+
+/* This Function shows a user details bsed on the user's username. */
+
 	public function profile($username=''){
 		
-
 		$data['target_user']= $username;
 		$data['title'] = $username . " user's profile";
 		$data['active'] = 'Users';
