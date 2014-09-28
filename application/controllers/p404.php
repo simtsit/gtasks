@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* This Controller is related to 404 Page. */
+
 class P404 extends CI_Controller {
 
 /** 
@@ -25,8 +27,7 @@ class P404 extends CI_Controller {
 		$data['title'] = 'Page not Found';
 		$data['active'] = 'pagenotfound';
 
-
-				$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
+		$data['active_user'] = $this->user->active_user_details($_SESSION['username']);
 		$data['preview'] = base_url() . "dist/assets/img/users/" . $data['active_user'][0]['preview']; 
 		
 		$info['positions']=$this->position->all_positions();
@@ -35,12 +36,9 @@ class P404 extends CI_Controller {
 			if ($data['active_user'][0]['position'] == $position['id'])
 				$data['position'] = $position['name']; 
 		}
-
 		
 		$this->load->view('p404', $data);
-
 	}
-
 
 }
 
