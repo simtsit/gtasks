@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/* This Controller is related to Projects. */
+
 class Projects extends CI_Controller {
 
 /** 
@@ -56,12 +58,10 @@ class Projects extends CI_Controller {
 			$data['projectcount'][$customer['id']] = $projectcount;
 		}
 
-		
 		$this->load->view('projects', $data);
-
 	}
 
-
+/* This function loads the project profile page based on project codename. */
 
 	public function project_info($codename=''){
 		$data['title'] = 'Projects';
@@ -110,11 +110,7 @@ class Projects extends CI_Controller {
 
 
 		$this->load->view('project_profile', $data);
-
 	}
-
-
-
 
 }
 
