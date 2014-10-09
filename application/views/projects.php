@@ -14,7 +14,7 @@
               <table class="table table-condensed table-hovered sortableTable">
                 <tr>
                   <th>Project Name</th>
-                  <th>Custmer</th>
+                  <th>Customer</th>
                   <th>Project URL</th>
                 </tr>
 
