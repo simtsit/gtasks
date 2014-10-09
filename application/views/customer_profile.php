@@ -43,6 +43,17 @@
                           <!-- <input type="text" name="email" id="priority" class="validate[required] form-control" value="<?php echo $customer['email']; ?>"> -->
                         <!-- </div> -->
                       </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-lg-4">Tel:</label>
+                        <label class="control-label"><?php echo $customer['tel']; ?></label>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-lg-4">Notes:</label>
+                        <label class="control-label"><?php echo $customer['notes']; ?></label>
+                      </div>
+                      
                   <?php 
                     }
                   ?>
