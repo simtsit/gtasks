@@ -15,7 +15,7 @@
 |
 */
 
-$config['base_url']	= 'http://localhost/gtasks';
+$config['base_url']	= 'http://www.gtasks.geckowebworks.com/';
 
 /*
 |--------------------------------------------------------------------------
